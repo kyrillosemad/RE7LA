@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:re7la/core/colors.dart';
+import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/view/modules/main_pages/screens/bus_booking.dart';
 import 'package:sizer/sizer.dart';
 
@@ -58,8 +58,10 @@ class _ExploreState extends State<Explore> {
                 flex: 1,
                 child: Container(
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [MyColors().mainBlue, MyColors().mainGreen]),
+                      gradient: const LinearGradient(colors: [
+                        AppColor.primaryColor,
+                        AppColor.primaryColor
+                      ]),
                       borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(25.sp),
                           bottomRight: Radius.circular(25.sp))),
@@ -172,21 +174,21 @@ class _ExploreState extends State<Explore> {
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10.sp),
                                   border:
-                                      Border.all(color: MyColors().mainBlue)),
+                                      Border.all(color: AppColor.primaryColor)),
                               child: Column(
                                 children: [
-                                  Row(
+                                  const Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
                                         "ID: ",
                                         style: TextStyle(
-                                            color: MyColors().mainGreen),
+                                            color: AppColor.primaryColor),
                                       ),
                                       Text(
                                         "45458745",
                                         style: TextStyle(
-                                            color: MyColors().mainBlue),
+                                            color: AppColor.primaryColor),
                                       )
                                     ],
                                   ),
@@ -203,9 +205,10 @@ class _ExploreState extends State<Explore> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Icon(
+                                                  const Icon(
                                                     Icons.location_on_outlined,
-                                                    color: MyColors().mainGreen,
+                                                    color:
+                                                        AppColor.primaryColor,
                                                   ),
                                                   SizedBox(
                                                     width: 2.w,
@@ -213,8 +216,8 @@ class _ExploreState extends State<Explore> {
                                                   Text(
                                                     "Qena",
                                                     style: TextStyle(
-                                                        color:
-                                                            MyColors().mainBlue,
+                                                        color: AppColor
+                                                            .primaryColor,
                                                         fontSize: 13.sp),
                                                   )
                                                 ],
@@ -226,9 +229,10 @@ class _ExploreState extends State<Explore> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
-                                                  Icon(
+                                                  const Icon(
                                                     Icons.send,
-                                                    color: MyColors().mainGreen,
+                                                    color:
+                                                        AppColor.primaryColor,
                                                   ),
                                                   SizedBox(
                                                     width: 2.w,
@@ -236,16 +240,16 @@ class _ExploreState extends State<Explore> {
                                                   Text(
                                                     "Cairo",
                                                     style: TextStyle(
-                                                        color:
-                                                            MyColors().mainBlue,
+                                                        color: AppColor
+                                                            .primaryColor,
                                                         fontSize: 13.sp),
                                                   )
                                                 ],
                                               ),
                                             ],
                                           )),
-                                      VerticalDivider(
-                                        color: MyColors().mainBlue,
+                                      const VerticalDivider(
+                                        color: AppColor.primaryColor,
                                       ),
                                       SizedBox(
                                           width: 40.w,
@@ -254,63 +258,63 @@ class _ExploreState extends State<Explore> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     "Date: ",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainGreen),
+                                                      color:
+                                                          AppColor.primaryColor,
+                                                    ),
                                                   ),
                                                   Text(
                                                     "15/5/2024",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainBlue),
+                                                        color: AppColor
+                                                            .primaryColor),
                                                   )
                                                 ],
                                               ),
                                               SizedBox(
                                                 height: 0.5.h,
                                               ),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     "Time: ",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainGreen),
+                                                        color: AppColor
+                                                            .primaryColor),
                                                   ),
                                                   Text(
                                                     "10 pm",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainBlue),
+                                                        color: AppColor.grey2),
                                                   )
                                                 ],
                                               ),
                                               SizedBox(
                                                 height: 0.5.h,
                                               ),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     "price: ",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainGreen),
+                                                        color: AppColor
+                                                            .primaryColor),
                                                   ),
                                                   Text(
                                                     "250 EGP",
                                                     style: TextStyle(
-                                                        color: MyColors()
-                                                            .mainBlue),
+                                                        color: AppColor
+                                                            .primaryColor),
                                                   )
                                                 ],
                                               )
@@ -326,7 +330,7 @@ class _ExploreState extends State<Explore> {
                                       width: 70.w,
                                       height: 6.h,
                                       decoration: BoxDecoration(
-                                          color: MyColors().mainGreen,
+                                          color: AppColor.primaryColor,
                                           borderRadius:
                                               BorderRadius.circular(10.sp)),
                                       child: const Center(

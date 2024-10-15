@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:re7la/core/colors.dart';
+import 'package:re7la/core/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class Booked extends StatefulWidget {
@@ -27,11 +27,11 @@ class _BookedState extends State<Booked> {
             children: [
               Text(
                 "All Booked Travels",
-                style: TextStyle(fontSize: 18.sp, color: MyColors().mainBlue),
+                style: TextStyle(fontSize: 18.sp, color:  AppColor.primaryColor),
               ),
               Icon(
                 Icons.bookmark_added,
-                color: MyColors().mainBlue,
+                color:  AppColor.primaryColor,
                 size: 25.sp,
               )
             ],
@@ -57,7 +57,7 @@ class _BookedState extends State<Booked> {
                         margin: EdgeInsets.all(5.sp),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.sp),
-                            border: Border.all(color: MyColors().mainBlue)),
+                            border: Border.all(color:  AppColor.primaryColor)),
                         child: Column(
                           children: [
                             Row(
@@ -65,11 +65,11 @@ class _BookedState extends State<Booked> {
                               children: [
                                 Text(
                                   "ID: ",
-                                  style: TextStyle(color: MyColors().mainGreen),
+                                  style: TextStyle(color: AppColor.primaryColor),
                                 ),
                                 Text(
                                   "45458745",
-                                  style: TextStyle(color: MyColors().mainBlue),
+                                  style: TextStyle(color:  AppColor.primaryColor),
                                 )
                               ],
                             ),
@@ -88,7 +88,7 @@ class _BookedState extends State<Booked> {
                                           children: [
                                             Icon(
                                               Icons.location_on_outlined,
-                                              color: MyColors().mainGreen,
+                                              color: AppColor.primaryColor,
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -96,7 +96,7 @@ class _BookedState extends State<Booked> {
                                             Text(
                                               "Qena",
                                               style: TextStyle(
-                                                  color: MyColors().mainBlue,
+                                                  color:  AppColor.primaryColor,
                                                   fontSize: 13.sp),
                                             )
                                           ],
@@ -110,7 +110,7 @@ class _BookedState extends State<Booked> {
                                           children: [
                                             Icon(
                                               Icons.send,
-                                              color: MyColors().mainGreen,
+                                              color: AppColor.primaryColor,
                                             ),
                                             SizedBox(
                                               width: 2.w,
@@ -118,7 +118,7 @@ class _BookedState extends State<Booked> {
                                             Text(
                                               "Cairo",
                                               style: TextStyle(
-                                                  color: MyColors().mainBlue,
+                                                  color:  AppColor.primaryColor,
                                                   fontSize: 13.sp),
                                             )
                                           ],
@@ -126,7 +126,7 @@ class _BookedState extends State<Booked> {
                                       ],
                                     )),
                                 VerticalDivider(
-                                  color: MyColors().mainBlue,
+                                  color:  AppColor.primaryColor,
                                 ),
                                 SizedBox(
                                     width: 40.w,
@@ -142,12 +142,12 @@ class _BookedState extends State<Booked> {
                                             Text(
                                               "Date: ",
                                               style: TextStyle(
-                                                  color: MyColors().mainGreen),
+                                                  color: AppColor.primaryColor),
                                             ),
                                             Text(
                                               "15/5/2024",
                                               style: TextStyle(
-                                                  color: MyColors().mainBlue),
+                                                  color:  AppColor.primaryColor),
                                             )
                                           ],
                                         ),
@@ -161,12 +161,12 @@ class _BookedState extends State<Booked> {
                                             Text(
                                               "Time: ",
                                               style: TextStyle(
-                                                  color: MyColors().mainGreen),
+                                                  color: AppColor.primaryColor),
                                             ),
                                             Text(
                                               "10 pm",
                                               style: TextStyle(
-                                                  color: MyColors().mainBlue),
+                                                  color:  AppColor.primaryColor),
                                             )
                                           ],
                                         ),
@@ -180,12 +180,12 @@ class _BookedState extends State<Booked> {
                                             Text(
                                               "price: ",
                                               style: TextStyle(
-                                                  color: MyColors().mainGreen),
+                                                  color: AppColor.primaryColor),
                                             ),
                                             Text(
                                               "250 EGP",
                                               style: TextStyle(
-                                                  color: MyColors().mainBlue),
+                                                  color:  AppColor.primaryColor),
                                             )
                                           ],
                                         )
@@ -214,7 +214,7 @@ class _BookedState extends State<Booked> {
                                   width: 35.w,
                                   height: 6.h,
                                   decoration: BoxDecoration(
-                                      color: MyColors().mainGreen,
+                                      color: AppColor.primaryColor,
                                       borderRadius:
                                           BorderRadius.circular(10.sp)),
                                   child: const Center(
@@ -227,7 +227,7 @@ class _BookedState extends State<Booked> {
                                 Container(
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                          color: MyColors().mainBlue, width: 2),
+                                          color:  AppColor.primaryColor, width: 2),
                                       borderRadius:
                                           BorderRadius.circular(5.sp)),
                                   child: Center(

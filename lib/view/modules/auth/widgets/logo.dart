@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:re7la/core/constants/images.dart';
 import 'package:sizer/sizer.dart';
 
-class Logo extends StatelessWidget {
-  const Logo({super.key});
+class AuthLogo extends StatelessWidget {
+  const AuthLogo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100.w,
-      height: 22.h,
-      decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/images.png")),
+      width: 80.w,
+      height: 20.h,
+      decoration: BoxDecoration(
+        image: DecorationImage(image: AssetImage(AppImages().logo)),
       ),
     );
   }

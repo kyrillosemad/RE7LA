@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:re7la/core/colors.dart';
+import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/view/modules/auth/screens/login.dart';
 import 'package:sizer/sizer.dart';
 
@@ -18,7 +18,7 @@ class AccountPage extends StatelessWidget {
             children: [
               // صورة الملف الشخصي
               CircleAvatar(
-                backgroundColor: MyColors().mainBlue,
+                backgroundColor: AppColor.primaryColor,
                 radius: 40.sp,
                 backgroundImage:
                     const AssetImage('assets/images/profile_picture.png'),
@@ -72,7 +72,7 @@ class AccountPage extends StatelessWidget {
               customButton(
                 icon: Icons.edit,
                 label: "Edit Profile",
-                color: MyColors().mainBlue,
+                color:  AppColor.primaryColor,
                 onPressed: () {
                   // Navigate to edit profile page
                 },
@@ -138,7 +138,7 @@ class AccountPage extends StatelessWidget {
   }) {
     return Row(
       children: [
-        Icon(icon, color: MyColors().mainBlue, size: 18.sp),
+        Icon(icon, color:  AppColor.primaryColor, size: 18.sp),
         SizedBox(width: 4.w),
         Expanded(
           child: Text(

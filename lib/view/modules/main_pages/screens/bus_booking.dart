@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:re7la/core/colors.dart';
+import 'package:re7la/core/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 
 class BusBooking extends StatefulWidget {
@@ -23,7 +23,7 @@ class _BusBookingState extends State<BusBooking> {
             Container(
               padding: EdgeInsets.all(10.sp),
               decoration: BoxDecoration(
-                color: MyColors().mainBlue,
+                color:  AppColor.primaryColor,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(25.sp),
                   bottomRight: Radius.circular(25.sp),
@@ -130,11 +130,11 @@ class _BusBookingState extends State<BusBooking> {
                   ),
                   Row(
                     children: [
-                      Icon(Icons.event_seat, color: MyColors().mainGreen),
+                      Icon(Icons.event_seat, color:  AppColor.primaryColor),
                       SizedBox(width: 1.w),
                       Text("Selected",
                           style: TextStyle(
-                              color: MyColors().mainGreen, fontSize: 10.sp)),
+                              color:  AppColor.primaryColor, fontSize: 10.sp)),
                     ],
                   ),
                 ],
@@ -167,7 +167,7 @@ class _BusBookingState extends State<BusBooking> {
                           color: seatBooked[index]
                               ? Colors.red
                               : seatSelected[index]
-                                  ? MyColors().mainGreen
+                                  ?  AppColor.primaryColor
                                   : Colors.grey,
                           borderRadius: BorderRadius.circular(5.sp),
                         ),
@@ -190,7 +190,7 @@ class _BusBookingState extends State<BusBooking> {
               width: 80.w,
               height: 6.h,
               decoration: BoxDecoration(
-                color: MyColors().mainGreen,
+                color:  AppColor.primaryColor,
                 borderRadius: BorderRadius.circular(10.sp),
               ),
               child: Center(
