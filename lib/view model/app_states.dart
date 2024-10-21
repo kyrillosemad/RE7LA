@@ -1,6 +1,8 @@
 sealed class AppState {}
 
-final class Initial extends AppState {}
+final class Initial extends AppState {
+  Initial();
+}
 
 class Loading extends AppState {}
 
@@ -14,3 +16,5 @@ class Empty extends AppState {}
 class ServerError extends AppState {}
 
 class InternetError extends AppState {}
+
+class GeneralError extends AppState {}

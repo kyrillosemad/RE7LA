@@ -1,13 +1,11 @@
-  import 'package:get/get.dart';
-  import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-  class Services extends GetxService {
-    SharedPreferences? sharedPref;
+class Services extends GetxService {
+  SharedPreferences? sharedPref;
 
-    Future<Services> init() async {
-      sharedPref = await SharedPreferences.getInstance();
-      return this;
-    }
+  Future<Services> init() async {
+    sharedPref = await SharedPreferences.getInstance();
+    return this;
   }
-
-
+}

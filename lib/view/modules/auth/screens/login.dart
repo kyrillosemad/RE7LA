@@ -98,7 +98,23 @@ class Login extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 2.h),
-                        CustomAuthButton(text: "Login", onTap: () {}),
+                        BlocBuilder<LoginCubit, AppState>(
+                          builder: (context, state) {
+                            if (state is Loading) {
+                              return const Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColor.primaryColor,
+                                ),
+                              );
+                            } else {
+                              return CustomAuthButton(
+                                  text: "Login",
+                                  onTap: () {
+                                    controller.login(context);
+                                  });
+                            }
+                          },
+                        ),
                         SizedBox(height: 4.h),
                         AuthQuestion(
                             text1: "have No account ? ",

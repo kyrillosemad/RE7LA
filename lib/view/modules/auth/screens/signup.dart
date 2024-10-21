@@ -128,7 +128,23 @@ class _SignUpState extends State<SignUp> {
                           ),
                         ),
                         SizedBox(height: 2.h),
-                        CustomAuthButton(text: "SignUp", onTap: () {}),
+                        BlocBuilder<SignUpCubit, AppState>(
+                          builder: (context, state) {
+                            if (state is Loading) {
+                              return const Center(
+                                child: CircularProgressIndicator(
+                                  color: AppColor.primaryColor,
+                                ),
+                              );
+                            } else {
+                              return CustomAuthButton(
+                                  text: "SignUp",
+                                  onTap: () {
+                                    controller.signUpFun(context);
+                                  });
+                            }
+                          },
+                        ),
                         SizedBox(
                           height: 3.h,
                         ),
