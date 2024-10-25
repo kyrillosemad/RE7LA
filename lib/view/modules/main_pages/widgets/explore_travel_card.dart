@@ -1,200 +1,153 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:re7la/core/constants/colors.dart';
-import 'package:re7la/view/modules/main_pages/screens/bus_booking.dart';
+import 'package:re7la/model/travel_model.dart';
+import 'package:re7la/view%20model/main_pages/explore_cubit.dart';
 import 'package:sizer/sizer.dart';
+import 'package:jiffy/jiffy.dart';
 
 class ExploreTravelCard extends StatelessWidget {
-  const ExploreTravelCard({super.key});
+  final ExploreCubit controller;
+  const ExploreTravelCard({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        flex: 6,
-        child: Container(
-          padding: EdgeInsets.all(10.sp),
-          width: 100.w,
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 1.h,
-              ),
-              Expanded(
-                  child: SizedBox(
-                width: 95.w,
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: 10,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      width: 80.w,
-                      padding: EdgeInsets.all(5.sp),
-                      margin: EdgeInsets.all(5.sp),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.sp),
-                          border: Border.all(color: AppColor.primaryColor)),
+    return SizedBox(
+      width: 100.w,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 1.h),
+          Expanded(
+            child: Container(
+              width: 100.w,
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: controller.data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  TravelModel travelModel =
+                      TravelModel.fromJson(controller.data[index]);
+                  return Card(
+                    color: const Color.fromARGB(255, 228, 228, 228),
+                    elevation: 1,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.sp),
+                    ),
+                    margin: EdgeInsets.symmetric(vertical: 5.sp),
+                    child: Padding(
+                      padding: EdgeInsets.all(15.sp),
                       child: Column(
                         children: [
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "ID: ",
-                                style: TextStyle(color: AppColor.primaryColor),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Travel ID: ${travelModel.travelId}",
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                  SizedBox(width: 20.w),
+                                  Text(
+                                    Jiffy(travelModel.travelDate).yMMMd,
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "45458745",
-                                style: TextStyle(color: AppColor.primaryColor),
-                              )
                             ],
                           ),
+                          SizedBox(height: 5.sp),
                           Row(
                             children: [
-                              SizedBox(
-                                  width: 40.w,
-                                  height: 12.h,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          const Icon(
-                                            Icons.location_on_outlined,
-                                            color: AppColor.thirdColor,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Text(
-                                            "Qena",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor,
-                                                fontSize: 13.sp),
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 2.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          const Icon(
-                                            Icons.send,
-                                            color: AppColor.thirdColor,
-                                          ),
-                                          SizedBox(
-                                            width: 2.w,
-                                          ),
-                                          Text(
-                                            "Cairo",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor,
-                                                fontSize: 13.sp),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  )),
-                              const VerticalDivider(
-                                color: AppColor.primaryColor,
+                              const Icon(Icons.location_on_outlined,
+                                  color: AppColor.thirdColor),
+                              SizedBox(width: 5.w),
+                              Text(
+                                "From: ${travelModel.travelFrom} → To: ${travelModel.travelTo}",
+                                style: TextStyle(
+                                  color: AppColor.primaryColor,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
-                              SizedBox(
-                                  width: 40.w,
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Date: ",
-                                            style: TextStyle(
-                                              color: AppColor.primaryColor,
-                                            ),
-                                          ),
-                                          Text(
-                                            "15/5/2024",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor),
-                                          )
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 0.5.h,
-                                      ),
-                                      const Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "Time: ",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor),
-                                          ),
-                                          Text(
-                                            "10 pm",
-                                            style: TextStyle(
-                                                color: AppColor.grey2),
-                                          )
-                                        ],
-                                      ),
-                                      const Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "price: ",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor),
-                                          ),
-                                          Text(
-                                            "250 EGP",
-                                            style: TextStyle(
-                                                color: AppColor.primaryColor),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  )),
                             ],
                           ),
-                          const SizedBox(
-                            height: 10,
+                          const SizedBox(height: 10),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  const Icon(Icons.access_time,
+                                      color: AppColor.secondColor),
+                                  SizedBox(width: 5.sp),
+                                  Text(
+                                    "Time: ${Jiffy(travelModel.travelDate).Hm}",
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(Icons.money,
+                                      color: AppColor.secondColor),
+                                  SizedBox(width: 5.sp),
+                                  Text(
+                                    "${travelModel.travelPrice} EGP",
+                                    style: TextStyle(
+                                      color: AppColor.primaryColor,
+                                      fontSize: 14.sp,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
+                          const SizedBox(height: 15),
                           InkWell(
                             onTap: () {
-                              Get.to(const BusBooking());
+                              controller.goToTravelDetails();
                             },
                             child: Container(
-                              width: 70.w,
+                              width: 60.w,
                               height: 6.h,
                               decoration: BoxDecoration(
-                                  color: AppColor.primaryColor,
-                                  borderRadius: BorderRadius.circular(10.sp)),
+                                color: AppColor.primaryColor,
+                                borderRadius: BorderRadius.circular(8.sp),
+                              ),
                               child: const Center(
                                 child: Text(
                                   "More Details",
-                                  style: TextStyle(color: Colors.white),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14),
                                 ),
                               ),
                             ),
                           ),
                         ],
                       ),
-                    );
-                  },
-                ),
-              ))
-            ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 }

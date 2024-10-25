@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:sizer/sizer.dart';
 
-class BusBookingConfirmButton extends StatelessWidget {
-  const BusBookingConfirmButton({super.key});
+class TravelDetailsConfirmButton extends StatelessWidget {
+  const TravelDetailsConfirmButton({super.key});
 
   @override
   Widget build(BuildContext context) {
