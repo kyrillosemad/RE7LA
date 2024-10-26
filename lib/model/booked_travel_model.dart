@@ -1,4 +1,4 @@
-class BookedTravelMode {
+class BookedTravelModel {
   int? travelId;
   String? travelFrom;
   String? travelTo;
@@ -7,7 +7,7 @@ class BookedTravelMode {
   int? travelComplete;
   List<Seats>? seats;
 
-  BookedTravelMode(
+  BookedTravelModel(
       {this.travelId,
       this.travelFrom,
       this.travelTo,
@@ -16,7 +16,7 @@ class BookedTravelMode {
       this.travelComplete,
       this.seats});
 
-  BookedTravelMode.fromJson(Map<String, dynamic> json) {
+  BookedTravelModel.fromJson(Map<String, dynamic> json) {
     travelId = json['travel_id'];
     travelFrom = json['travel_from'];
     travelTo = json['travel_to'];
@@ -49,6 +49,7 @@ class BookedTravelMode {
 class Seats {
   int? seatId;
   int? seatNumber;
+  int? ownerId;
   int? travelId;
   int? seatStatus;
   int? reservationCode;
@@ -57,6 +58,7 @@ class Seats {
   Seats(
       {this.seatId,
       this.seatNumber,
+      this.ownerId,
       this.travelId,
       this.seatStatus,
       this.reservationCode,
@@ -65,6 +67,7 @@ class Seats {
   Seats.fromJson(Map<String, dynamic> json) {
     seatId = json['seat_id'];
     seatNumber = json['seat_number'];
+    ownerId = json['owner_id'];
     travelId = json['travel_id'];
     seatStatus = json['seat_status'];
     reservationCode = json['reservation_code'];
@@ -75,6 +78,7 @@ class Seats {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['seat_id'] = seatId;
     data['seat_number'] = seatNumber;
+    data['owner_id'] = ownerId;
     data['travel_id'] = travelId;
     data['seat_status'] = seatStatus;
     data['reservation_code'] = reservationCode;

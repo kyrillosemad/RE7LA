@@ -1,8 +1,28 @@
 import 'package:bloc/bloc.dart';
+import 'package:get/route_manager.dart';
+import 'package:re7la/model/travel_model.dart';
 import 'package:re7la/view%20model/app_states.dart';
 
 class TravelDetailsCubit extends Cubit<AppState> {
   TravelDetailsCubit() : super(Initial());
-  List<bool> seatSelected = List.generate(49, (index) => false);
-  List<bool> seatBooked = List.generate(49, (index) => index % 3 == 0);
+  List selectedSeat = [];
+  var data = Get.arguments['data'];
+  selectSeat(widget, index) {
+    if (widget.travelModel.seats![index].seatStatus == 0) {
+      String seatId = "${widget.travelModel.seats![index].seatId}";
+      if (!widget.controller.selectedSeat.contains(seatId)) {
+        widget.controller.selectedSeat.add(seatId);
+      } else {
+        widget.controller.selectedSeat.remove(seatId);
+      }
+    }
+  }
+
+  printData() {
+    TravelModel travelModel = TravelModel.fromJson(data);
+    print(
+        "the travel Total Price is ${selectedSeat.length * travelModel.travelPrice!.toInt()}");
+    print("the travel Seats is $selectedSeat");
+    print("the travel all info is ${travelModel.travelId}");
+  }
 }

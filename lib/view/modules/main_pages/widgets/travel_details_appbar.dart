@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jiffy/jiffy.dart';
+import 'package:re7la/model/travel_model.dart';
+import 'package:re7la/view%20model/main_pages/travel_details_cubit.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../core/constants/colors.dart';
 
 class TravelDetailsAppbar extends StatelessWidget {
-  const TravelDetailsAppbar({super.key});
+  final TravelDetailsCubit controller;
+  final TravelModel travelModel;
+  const TravelDetailsAppbar(
+      {super.key, required this.controller, required this.travelModel});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +41,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                 ),
               ),
               Text(
-                "ID: 55484855",
+                "ID: ${travelModel.travelId}",
                 style: TextStyle(fontSize: 14.sp, color: Colors.white),
               ),
             ],
@@ -46,7 +52,7 @@ class TravelDetailsAppbar extends StatelessWidget {
               const Icon(Icons.location_on_outlined, color: Colors.white),
               SizedBox(width: 5.w),
               Text(
-                "From: Qena → To: Cairo",
+                "From: ${travelModel.travelFrom} → To: ${travelModel.travelTo}",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14.sp,
@@ -63,7 +69,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                   const Icon(Icons.access_time, color: Colors.white),
                   SizedBox(width: 2.w),
                   Text(
-                    "10 PM",
+                    "Time: ${Jiffy(travelModel.travelDate).Hm}",
                     style: TextStyle(color: Colors.white, fontSize: 14.sp),
                   ),
                 ],
@@ -74,7 +80,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                   const Icon(Icons.date_range, color: Colors.white),
                   SizedBox(width: 2.w),
                   Text(
-                    "15/5/2024",
+                    Jiffy(travelModel.travelDate).MMMEd,
                     style: TextStyle(color: Colors.white, fontSize: 14.sp),
                   ),
                 ],
@@ -83,7 +89,7 @@ class TravelDetailsAppbar extends StatelessWidget {
           ),
           SizedBox(height: 1.h),
           Text(
-            "Price: 250 EGP",
+            "Price: ${travelModel.travelPrice} EGP",
             style: TextStyle(color: Colors.white, fontSize: 14.sp),
           ),
         ],

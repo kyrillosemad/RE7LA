@@ -118,7 +118,8 @@ class ExploreTravelCard extends StatelessWidget {
                           const SizedBox(height: 15),
                           InkWell(
                             onTap: () {
-                              controller.goToTravelDetails();
+                              controller
+                                  .goToTravelDetails(controller.data[index]);
                             },
                             child: Container(
                               width: 60.w,

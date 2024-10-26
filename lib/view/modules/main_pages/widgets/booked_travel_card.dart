@@ -1,13 +1,17 @@
+// ignore_for_file: must_be_immutable, prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
+import 'package:jiffy/jiffy.dart';
 import 'package:re7la/core/constants/colors.dart';
+import 'package:re7la/model/booked_travel_model.dart';
+import 'package:re7la/view%20model/main_pages/booked_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class BookedTravelCard extends StatelessWidget {
-  const BookedTravelCard({super.key});
-
+  BookedCubit controller;
+  BookedTravelCard({super.key, required this.controller});
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -18,8 +22,10 @@ class BookedTravelCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
-                itemCount: 10,
+                itemCount: controller.data.length,
                 itemBuilder: (BuildContext context, int index) {
+                  BookedTravelModel bookedTravelMode =
+                      BookedTravelModel.fromJson(controller.data[index]);
                   return Card(
                     color: const Color.fromARGB(255, 228, 228, 228),
                     elevation: 1,
@@ -35,7 +41,7 @@ class BookedTravelCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "Travel ID: 4545",
+                                "Travel ID: ${bookedTravelMode.travelId}",
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontWeight: FontWeight.bold,
@@ -43,7 +49,7 @@ class BookedTravelCard extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                "15/5/2024",
+                                Jiffy(bookedTravelMode.travelDate).MMMEd,
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontWeight: FontWeight.bold,
@@ -59,7 +65,7 @@ class BookedTravelCard extends StatelessWidget {
                                   color: AppColor.thirdColor),
                               SizedBox(width: 5.w),
                               Text(
-                                "From: Qena → To: Cairo",
+                                "From: ${bookedTravelMode.travelFrom} → To: ${bookedTravelMode.travelTo}",
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontSize: 14.sp,
@@ -78,7 +84,7 @@ class BookedTravelCard extends StatelessWidget {
                                       color: AppColor.secondColor),
                                   SizedBox(width: 5.sp),
                                   Text(
-                                    "Time: 10 PM",
+                                    "Time: ${Jiffy(bookedTravelMode.travelDate).Hm}",
                                     style: TextStyle(
                                       color: AppColor.primaryColor,
                                       fontSize: 14.sp,
@@ -92,7 +98,7 @@ class BookedTravelCard extends StatelessWidget {
                                       color: AppColor.secondColor),
                                   SizedBox(width: 5.sp),
                                   Text(
-                                    "250 EGP",
+                                    "${bookedTravelMode.travelPrice} EGP",
                                     style: TextStyle(
                                       color: AppColor.primaryColor,
                                       fontSize: 14.sp,
@@ -107,9 +113,12 @@ class BookedTravelCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  controller.goToTravelDetails(
+                                      controller.data[index]);
+                                },
                                 child: Container(
-                                  width: 50.w,
+                                  width: 60.w,
                                   height: 6.h,
                                   decoration: BoxDecoration(
                                     color: AppColor.primaryColor,
@@ -127,19 +136,6 @@ class BookedTravelCard extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: AppColor.primaryColor, width: 2),
-                                  borderRadius: BorderRadius.circular(5.sp),
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.qr_code,
-                                    size: 35.sp,
-                                  ),
-                                ),
-                              )
                             ],
                           ),
                         ],

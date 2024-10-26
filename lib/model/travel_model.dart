@@ -78,3 +78,4 @@ class Seats {
     return data;
   }
 }
+  

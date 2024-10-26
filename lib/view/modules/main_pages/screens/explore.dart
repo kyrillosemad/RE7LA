@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:re7la/core/classes/handling_data_view.dart';
+import 'package:re7la/core/functions/app_exit_alert.dart';
 import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view%20model/main_pages/explore_cubit.dart';
 import 'package:re7la/view/modules/main_pages/widgets/explore_appbar.dart';
@@ -18,14 +19,16 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: BlocProvider(
-            create: (context) => ExploreCubit(),
-            child: Builder(
-              builder: (context) {
-                var controller = context.read<ExploreCubit>();
-                controller.viewAllTravels();
-                return Scaffold(
-                    body: SizedBox(
+      child: BlocProvider(
+          create: (context) => ExploreCubit(),
+          child: Builder(
+            builder: (context) {
+              var controller = context.read<ExploreCubit>();
+              controller.viewAllTravels();
+              return Scaffold(
+                  body: WillPopScope(
+                onWillPop: appExitAlert,
+                child: SizedBox(
                   width: 100.w,
                   height: 100.h,
                   child: Column(
@@ -46,8 +49,10 @@ class _ExploreState extends State<Explore> {
                       )
                     ],
                   ),
-                ));
-              },
-            )));
+                ),
+              ));
+            },
+          )),
+    );
   }
 }

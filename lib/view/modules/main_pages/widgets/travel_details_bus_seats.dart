@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:re7la/core/constants/colors.dart';
+import 'package:re7la/core/services/services.dart';
+import 'package:re7la/model/travel_model.dart';
+import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view%20model/main_pages/travel_details_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 class TravelDetailsBusSeats extends StatefulWidget {
   final TravelDetailsCubit controller;
-  const TravelDetailsBusSeats({super.key, required this.controller});
+  final TravelModel travelModel;
+
+  const TravelDetailsBusSeats({
+    Key? key,
+    required this.controller,
+    required this.travelModel,
+  }) : super(key: key);
 
   @override
   State<TravelDetailsBusSeats> createState() => _TravelDetailsBusSeatsState();
@@ -24,51 +35,69 @@ class _TravelDetailsBusSeatsState extends State<TravelDetailsBusSeats> {
             crossAxisSpacing: 5.sp,
             mainAxisSpacing: 5.sp,
           ),
-          itemCount: widget.controller.seatSelected.length,
+          itemCount: widget.travelModel.seats!.length,
           itemBuilder: (context, index) {
+            Services services = Get.find<Services>();
             return GestureDetector(
-              onTap: widget.controller.seatBooked[index]
-                  ? null
-                  : () {
-                      setState(() {
-                        widget.controller.seatSelected[index] =
-                            !widget.controller.seatSelected[index];
-                      });
-                    },
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 224, 224, 224)
-                        .withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(25.sp),
-                  ),
-                  child: Column(
-                    children: [
-                      Center(
-                        child: Text(
-                          "Seat ${index + 1}",
-                          style: TextStyle(
-                              color: widget.controller.seatBooked[index]
-                                  ? Colors.red
-                                  : widget.controller.seatSelected[index]
-                                      ? AppColor.primaryColor
-                                      : Colors.grey,
-                              fontSize: 10.sp),
+              onTap: () {
+                setState(() {
+                  widget.controller.selectSeat(widget, index);
+                });
+              },
+              child: BlocBuilder<TravelDetailsCubit, AppState>(
+                builder: (context, state) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 224, 224, 224)
+                          .withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(25.sp),
+                    ),
+                    child: Column(
+                      children: [
+                        Center(
+                          child: Text(
+                            "Seat ${index + 1}",
+                            style: TextStyle(
+                              color: widget.controller.selectedSeat.contains(
+                                      widget.travelModel.seats![index].seatId
+                                          .toString())
+                                  ? AppColor.primaryColor
+                                  : widget.travelModel.seats![index]
+                                              .seatStatus ==
+                                          0
+                                      ? AppColor.grey
+                                      : widget.travelModel.seats![index].ownerId
+                                                  .toString() ==
+                                              services.sharedPref!
+                                                  .getString("userId")
+                                          ? Colors.green
+                                          : Colors.red,
+                              fontSize: 10.sp,
+                            ),
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 2,
-                      ),
-                      Icon(
-                        Icons.event_seat,
-                        size: 40,
-                        color: widget.controller.seatBooked[index]
-                            ? Colors.red
-                            : widget.controller.seatSelected[index]
-                                ? AppColor.primaryColor
-                                : Colors.grey,
-                      )
-                    ],
-                  )),
+                        const SizedBox(height: 2),
+                        Icon(
+                          Icons.event_seat,
+                          size: 40,
+                          color: widget.controller.selectedSeat.contains(widget
+                                  .travelModel.seats![index].seatId
+                                  .toString())
+                              ? AppColor.primaryColor
+                              : widget.travelModel.seats![index].seatStatus == 0
+                                  ? AppColor.grey
+                                  : widget.travelModel.seats![index].ownerId
+                                              .toString() ==
+                                          services.sharedPref!
+                                              .getString("userId")
+                                      ? Colors.green
+                                      : Colors.red,
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              ),
             );
           },
         ),

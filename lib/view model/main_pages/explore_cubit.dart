@@ -12,6 +12,7 @@ class ExploreCubit extends Cubit<AppState> {
   String? selectedTo;
   var data = [];
   final List<String> governorates = [
+    'All',
     'Cairo',
     'Alexandria',
     'Giza',
@@ -41,8 +42,10 @@ class ExploreCubit extends Cubit<AppState> {
     'Suez'
   ];
 
-  goToTravelDetails() {
-    Get.toNamed(AppRoutes().busBooking);
+  goToTravelDetails(data) {
+    Get.toNamed(AppRoutes().busBooking, arguments: {
+      "data": data,
+    });
   }
 
   viewAllTravels() async {
@@ -56,17 +59,25 @@ class ExploreCubit extends Cubit<AppState> {
       }
     }, (r) {
       if (r['status'] == "success") {
-        if ((selectedFrom == null || selectedFrom!.isEmpty) &&
-            (selectedTo == null || selectedTo!.isEmpty)) {
+        if ((selectedFrom == null ||
+                selectedFrom!.isEmpty ||
+                selectedFrom == 'All') &&
+            (selectedTo == null ||
+                selectedTo!.isEmpty ||
+                selectedTo == 'All')) {
           data = r['data'];
-        } else if (selectedFrom == null || selectedFrom!.isEmpty) {
+        } else if (selectedFrom == null ||
+            selectedFrom!.isEmpty ||
+            selectedFrom == 'All') {
           data = r['data']
               .where((travel) => travel['travel_to']
                   .toString()
                   .toLowerCase()
                   .startsWith(selectedTo!.toLowerCase()))
               .toList();
-        } else if (selectedTo == null || selectedTo!.isEmpty) {
+        } else if (selectedTo == null ||
+            selectedTo!.isEmpty ||
+            selectedTo == 'All') {
           data = r['data']
               .where((travel) => travel['travel_from']
                   .toString()
