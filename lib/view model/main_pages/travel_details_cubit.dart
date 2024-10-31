@@ -7,9 +7,12 @@ class TravelDetailsCubit extends Cubit<AppState> {
   TravelDetailsCubit() : super(Initial());
   List selectedSeat = [];
   var data = Get.arguments['data'];
+  int coachNumber = 0;
   selectSeat(widget, index) {
-    if (widget.travelModel.seats![index].seatStatus == 0) {
-      String seatId = "${widget.travelModel.seats![index].seatId}";
+    if (widget.travelModel.coaches![coachNumber].seats![index].seatStatus ==
+        0) {
+      String seatId =
+          "${widget.travelModel.coaches![coachNumber].seats![index].seatId}";
       if (!widget.controller.selectedSeat.contains(seatId)) {
         widget.controller.selectedSeat.add(seatId);
       } else {
@@ -26,3 +29,5 @@ class TravelDetailsCubit extends Cubit<AppState> {
     print("the travel all info is ${travelModel.travelId}");
   }
 }
+
+//ان لما اغير العربة حالة الكراسي لا تتغير بتلقائية

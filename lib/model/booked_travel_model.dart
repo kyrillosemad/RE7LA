@@ -2,27 +2,72 @@ class BookedTravelModel {
   int? travelId;
   String? travelFrom;
   String? travelTo;
+  String? travelType;
+  int? seatsCount;
+  int? coachesCount;
   String? travelDate;
   int? travelPrice;
   int? travelComplete;
-  List<Seats>? seats;
+  List<Coaches>? coaches;
 
   BookedTravelModel(
       {this.travelId,
       this.travelFrom,
       this.travelTo,
+      this.travelType,
+      this.seatsCount,
+      this.coachesCount,
       this.travelDate,
       this.travelPrice,
       this.travelComplete,
-      this.seats});
+      this.coaches});
 
   BookedTravelModel.fromJson(Map<String, dynamic> json) {
     travelId = json['travel_id'];
     travelFrom = json['travel_from'];
     travelTo = json['travel_to'];
+    travelType = json['travel_type'];
+    seatsCount = json['seats_count'];
+    coachesCount = json['coaches_count'];
     travelDate = json['travel_date'];
     travelPrice = json['travel_price'];
     travelComplete = json['travel_complete'];
+    if (json['coaches'] != null) {
+      coaches = <Coaches>[];
+      json['coaches'].forEach((v) {
+        coaches!.add(Coaches.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['travel_id'] = travelId;
+    data['travel_from'] = travelFrom;
+    data['travel_to'] = travelTo;
+    data['travel_type'] = travelType;
+    data['seats_count'] = seatsCount;
+    data['coaches_count'] = coachesCount;
+    data['travel_date'] = travelDate;
+    data['travel_price'] = travelPrice;
+    data['travel_complete'] = travelComplete;
+    if (coaches != null) {
+      data['coaches'] = coaches!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Coaches {
+  int? coachId;
+  int? coachNumber;
+  List<Seats>? seats;
+
+  Coaches({this.coachId, this.coachNumber, this.seats});
+
+  Coaches.fromJson(Map<String, dynamic> json) {
+    coachId = json['coach_id'];
+    coachNumber = json['coach_number'];
     if (json['seats'] != null) {
       seats = <Seats>[];
       json['seats'].forEach((v) {
@@ -33,12 +78,8 @@ class BookedTravelModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['travel_id'] = travelId;
-    data['travel_from'] = travelFrom;
-    data['travel_to'] = travelTo;
-    data['travel_date'] = travelDate;
-    data['travel_price'] = travelPrice;
-    data['travel_complete'] = travelComplete;
+    data['coach_id'] = coachId;
+    data['coach_number'] = coachNumber;
     if (seats != null) {
       data['seats'] = seats!.map((v) => v.toJson()).toList();
     }

@@ -6,12 +6,21 @@ import 'package:re7la/view%20model/main_pages/travel_details_cubit.dart';
 import 'package:sizer/sizer.dart';
 import '../../../../core/constants/colors.dart';
 
-class TravelDetailsAppbar extends StatelessWidget {
+class TravelDetailsAppbar extends StatefulWidget {
   final TravelDetailsCubit controller;
   final TravelModel travelModel;
-  const TravelDetailsAppbar(
-      {super.key, required this.controller, required this.travelModel});
 
+  const TravelDetailsAppbar({
+    super.key,
+    required this.controller,
+    required this.travelModel,
+  });
+
+  @override
+  State<TravelDetailsAppbar> createState() => _TravelDetailsAppbarState();
+}
+
+class _TravelDetailsAppbarState extends State<TravelDetailsAppbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +50,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                 ),
               ),
               Text(
-                "ID: ${travelModel.travelId}",
+                "ID: ${widget.travelModel.travelId}",
                 style: TextStyle(fontSize: 14.sp, color: Colors.white),
               ),
             ],
@@ -52,7 +61,7 @@ class TravelDetailsAppbar extends StatelessWidget {
               const Icon(Icons.location_on_outlined, color: Colors.white),
               SizedBox(width: 5.w),
               Text(
-                "From: ${travelModel.travelFrom} → To: ${travelModel.travelTo}",
+                "From: ${widget.travelModel.travelFrom} → To: ${widget.travelModel.travelTo}",
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 14.sp,
@@ -69,7 +78,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                   const Icon(Icons.access_time, color: Colors.white),
                   SizedBox(width: 2.w),
                   Text(
-                    "Time: ${Jiffy(travelModel.travelDate).Hm}",
+                    "Time: ${Jiffy(widget.travelModel.travelDate).Hm}",
                     style: TextStyle(color: Colors.white, fontSize: 14.sp),
                   ),
                 ],
@@ -80,7 +89,7 @@ class TravelDetailsAppbar extends StatelessWidget {
                   const Icon(Icons.date_range, color: Colors.white),
                   SizedBox(width: 2.w),
                   Text(
-                    Jiffy(travelModel.travelDate).MMMEd,
+                    Jiffy(widget.travelModel.travelDate).MMMEd,
                     style: TextStyle(color: Colors.white, fontSize: 14.sp),
                   ),
                 ],
@@ -88,9 +97,41 @@ class TravelDetailsAppbar extends StatelessWidget {
             ],
           ),
           SizedBox(height: 1.h),
-          Text(
-            "Price: ${travelModel.travelPrice} EGP",
-            style: TextStyle(color: Colors.white, fontSize: 14.sp),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                "Price: ${widget.travelModel.travelPrice} EGP",
+                style: TextStyle(color: Colors.white, fontSize: 14.sp),
+              ),
+              Text(
+                "Type: ${widget.travelModel.travelType}",
+                style: TextStyle(color: Colors.white, fontSize: 14.sp),
+              ),
+              DropdownButton<String>(
+                value: widget.controller.coachNumber.toString(),
+                onChanged: (value) {
+                  setState(() {
+                    widget.controller.coachNumber = int.parse(value!);
+                  });
+                },
+                dropdownColor: const Color.fromARGB(255, 106, 106, 106),
+                hint: const Text(
+                  "Select",
+                  style: TextStyle(color: Colors.white),
+                ),
+                items: List.generate(
+                  widget.controller.data['coaches'].length,
+                  (index) => DropdownMenuItem<String>(
+                    value: index.toString(),
+                    child: Text(
+                      'Coach ${index + 1}',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

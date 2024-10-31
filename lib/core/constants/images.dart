@@ -4,5 +4,5 @@ class AppImages {
   final String loading = "${rootLottie}loading.json";
   final String error = "${rootLottie}error.json";
   final String error2 = "${rootLottie}error 2 .json";
-  final String logo = "${rootLottie}logo.png";
+  final String logo = "${rootImage}logo.png";
 }

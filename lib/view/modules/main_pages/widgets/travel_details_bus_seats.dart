@@ -35,8 +35,11 @@ class _TravelDetailsBusSeatsState extends State<TravelDetailsBusSeats> {
             crossAxisSpacing: 5.sp,
             mainAxisSpacing: 5.sp,
           ),
-          itemCount: widget.travelModel.seats!.length,
+          itemCount: widget.travelModel.coaches![widget.controller.coachNumber]
+              .seats!.length,
           itemBuilder: (context, index) {
+            var seats = widget.travelModel
+                .coaches![widget.controller.coachNumber].seats![index];
             Services services = Get.find<Services>();
             return GestureDetector(
               onTap: () {
@@ -58,16 +61,12 @@ class _TravelDetailsBusSeatsState extends State<TravelDetailsBusSeats> {
                           child: Text(
                             "Seat ${index + 1}",
                             style: TextStyle(
-                              color: widget.controller.selectedSeat.contains(
-                                      widget.travelModel.seats![index].seatId
-                                          .toString())
+                              color: widget.controller.selectedSeat
+                                      .contains(seats.seatId.toString())
                                   ? AppColor.primaryColor
-                                  : widget.travelModel.seats![index]
-                                              .seatStatus ==
-                                          0
+                                  : seats.seatStatus == 0
                                       ? AppColor.grey
-                                      : widget.travelModel.seats![index].ownerId
-                                                  .toString() ==
+                                      : seats.ownerId.toString() ==
                                               services.sharedPref!
                                                   .getString("userId")
                                           ? Colors.green
@@ -80,14 +79,12 @@ class _TravelDetailsBusSeatsState extends State<TravelDetailsBusSeats> {
                         Icon(
                           Icons.event_seat,
                           size: 40,
-                          color: widget.controller.selectedSeat.contains(widget
-                                  .travelModel.seats![index].seatId
-                                  .toString())
+                          color: widget.controller.selectedSeat
+                                  .contains(seats.seatId.toString())
                               ? AppColor.primaryColor
-                              : widget.travelModel.seats![index].seatStatus == 0
+                              : seats.seatStatus == 0
                                   ? AppColor.grey
-                                  : widget.travelModel.seats![index].ownerId
-                                              .toString() ==
+                                  : seats.ownerId.toString() ==
                                           services.sharedPref!
                                               .getString("userId")
                                       ? Colors.green
