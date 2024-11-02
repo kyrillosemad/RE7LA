@@ -25,29 +25,24 @@ class _TravelDetailsAppbarState extends State<TravelDetailsAppbar> {
   Widget build(BuildContext context) {
     return Container(
       width: 100.w,
-      padding: EdgeInsets.all(10.sp),
+      padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 2.h),
       decoration: BoxDecoration(
         color: AppColor.primaryColor,
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(25.sp),
-          bottomRight: Radius.circular(25.sp),
+          bottomLeft: Radius.circular(20.sp),
+          bottomRight: Radius.circular(20.sp),
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Title Row with back button and travel ID
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                  size: 22.sp,
-                ),
+                onPressed: () => Get.back(),
+                icon: Icon(Icons.arrow_back, color: Colors.white, size: 22.sp),
               ),
               Text(
                 "ID: ${widget.travelModel.travelId}",
@@ -56,77 +51,106 @@ class _TravelDetailsAppbarState extends State<TravelDetailsAppbar> {
             ],
           ),
           SizedBox(height: 1.h),
+
+          // Location and Destination Row
           Row(
             children: [
-              const Icon(Icons.location_on_outlined, color: Colors.white),
-              SizedBox(width: 5.w),
-              Text(
-                "From: ${widget.travelModel.travelFrom} → To: ${widget.travelModel.travelTo}",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
+              Icon(Icons.location_on_outlined,
+                  color: Colors.white, size: 18.sp),
+              SizedBox(width: 4.w),
+              Flexible(
+                child: Text(
+                  "From: ${widget.travelModel.travelFrom} → To: ${widget.travelModel.travelTo}",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ],
           ),
           SizedBox(height: 1.h),
+
+          // Time and Date Row
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
-                  const Icon(Icons.access_time, color: Colors.white),
-                  SizedBox(width: 2.w),
+                  Icon(Icons.access_time, color: Colors.white, size: 18.sp),
+                  SizedBox(width: 1.5.w),
                   Text(
                     "Time: ${Jiffy(widget.travelModel.travelDate).Hm}",
-                    style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 13.sp),
                   ),
                 ],
               ),
-              SizedBox(width: 10.w),
               Row(
                 children: [
-                  const Icon(Icons.date_range, color: Colors.white),
-                  SizedBox(width: 2.w),
+                  Icon(Icons.date_range, color: Colors.white, size: 18.sp),
+                  SizedBox(width: 1.5.w),
                   Text(
                     Jiffy(widget.travelModel.travelDate).MMMEd,
-                    style: TextStyle(color: Colors.white, fontSize: 14.sp),
+                    style: TextStyle(color: Colors.white, fontSize: 13.sp),
                   ),
                 ],
               ),
             ],
           ),
           SizedBox(height: 1.h),
+
+          // Price, Type, and Coach Dropdown Row with improved layout
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Price: ${widget.travelModel.travelPrice} EGP",
-                style: TextStyle(color: Colors.white, fontSize: 14.sp),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Price: ${widget.travelModel.travelPrice} EGP",
+                    style: TextStyle(color: Colors.white, fontSize: 13.sp),
+                  ),
+                  SizedBox(height: 0.5.h),
+                  Text(
+                    "Type: ${widget.travelModel.travelType}",
+                    style: TextStyle(color: Colors.white, fontSize: 13.sp),
+                  ),
+                ],
               ),
-              Text(
-                "Type: ${widget.travelModel.travelType}",
-                style: TextStyle(color: Colors.white, fontSize: 14.sp),
-              ),
-              DropdownButton<String>(
-                value: widget.controller.coachNumber.toString(),
-                onChanged: (value) {
-                  setState(() {
-                    widget.controller.coachNumber = int.parse(value!);
-                  });
-                },
-                dropdownColor: const Color.fromARGB(255, 106, 106, 106),
-                hint: const Text(
-                  "Select",
-                  style: TextStyle(color: Colors.white),
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8.sp),
                 ),
-                items: List.generate(
-                  widget.controller.data['coaches'].length,
-                  (index) => DropdownMenuItem<String>(
-                    value: index.toString(),
-                    child: Text(
-                      'Coach ${index + 1}',
-                      style: const TextStyle(color: Colors.white),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 2.w),
+                  child: DropdownButton<String>(
+                    iconEnabledColor: AppColor.primaryColor,
+                    focusColor: Colors.black,
+                    underline: Container(),
+                    value: widget.controller.coachNumber.toString(),
+                    onChanged: (value) {
+                      setState(() {
+                        widget.controller.coachNumber = int.parse(value!);
+                        widget.controller
+                            .viewSeats(widget.controller.coachNumber);
+                      });
+                    },
+                    dropdownColor: Colors.white,
+                    hint: const Text(
+                      "Select",
+                      style: TextStyle(color: AppColor.primaryColor),
+                    ),
+                    items: List.generate(
+                      widget.controller.data['coaches'].length,
+                      (index) => DropdownMenuItem<String>(
+                        value: index.toString(),
+                        child: Text(
+                          'Coach ${index + 1}',
+                          style: const TextStyle(color: AppColor.primaryColor),
+                        ),
+                      ),
                     ),
                   ),
                 ),

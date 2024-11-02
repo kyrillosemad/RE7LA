@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:get/get.dart';
+import 'package:re7la/core/constants/routes_name.dart';
 import 'package:re7la/core/services/services.dart';
 import 'package:re7la/view%20model/app_states.dart';
 
@@ -10,4 +11,9 @@ class AccountCubit extends Cubit<AppState> {
   var userName = Get.find<Services>().sharedPref!.getString("userName");
   var userEmail = Get.find<Services>().sharedPref!.getString("userEmail");
   var userPhone = Get.find<Services>().sharedPref!.getString("userPhone");
+
+  logout() {
+    services.sharedPref!.clear();
+    Get.offAllNamed(AppRoutes().login);
+  }
 }

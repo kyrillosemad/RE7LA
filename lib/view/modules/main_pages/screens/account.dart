@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/functions/app_exit_alert.dart';
 import 'package:re7la/view%20model/main_pages/account_cubit.dart';
@@ -91,7 +92,21 @@ class AccountPage extends StatelessWidget {
                         icon: Icons.logout,
                         label: "Logout",
                         color: Colors.red,
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.defaultDialog(
+                            title: "Are You Sure To Logout ?",
+                            titleStyle:
+                                const TextStyle(color: AppColor.primaryColor),
+                            content: Container(),
+                            confirmTextColor: Colors.white,
+                            cancelTextColor: AppColor.primaryColor,
+                            buttonColor: AppColor.primaryColor,
+                            onCancel: () {},
+                            onConfirm: () {
+                              controller.logout();
+                            },
+                          );
+                        },
                       ),
                     ],
                   ),

@@ -9,6 +9,7 @@ import 'package:re7la/view/modules/auth/screens/signup_email_verification.dart';
 import 'package:re7la/view/modules/intro_screen/screens/intro_screen.dart';
 import 'package:re7la/view/modules/main_pages/screens/account.dart';
 import 'package:re7la/view/modules/main_pages/screens/booked.dart';
+import 'package:re7la/view/modules/main_pages/screens/booking_details.dart';
 import 'package:re7la/view/modules/main_pages/screens/travel_details.dart';
 import 'package:re7la/view/modules/main_pages/screens/explore.dart';
 import 'package:re7la/view/modules/main_pages/screens/home_Page.dart';
@@ -30,4 +31,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().booked: (context) => const Booked(),
   AppRoutes().explore: (context) => const Explore(),
   AppRoutes().busBooking: (context) => const TravelDetails(),
+    AppRoutes().bookingDetails: (context) =>  BookingDetailsPage(),
 };
