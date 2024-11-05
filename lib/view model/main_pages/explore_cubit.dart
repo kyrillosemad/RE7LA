@@ -11,6 +11,7 @@ class ExploreCubit extends Cubit<AppState> {
   String? selectedFrom;
   String? selectedTo;
   var data = [];
+  DateTime? selectedDate;
   final List<String> governorates = [
     'All',
     'Cairo',
@@ -41,6 +42,10 @@ class ExploreCubit extends Cubit<AppState> {
     'South_Sinai',
     'Suez'
   ];
+  void updateSelectedDate(DateTime? date) {
+    selectedDate = date;
+    viewAllTravels();
+  }
 
   goToTravelDetails(data) {
     Get.toNamed(AppRoutes().busBooking, arguments: {
@@ -96,6 +101,16 @@ class ExploreCubit extends Cubit<AppState> {
                       .toLowerCase()
                       .startsWith(selectedTo!.toLowerCase()))
               .toList();
+        }
+        if (selectedDate != null) {
+          data = r['data'].where((travel) {
+            DateTime travelDate = DateTime.parse(travel['travel_date']);
+            return travelDate.year == selectedDate!.year &&
+                travelDate.month == selectedDate!.month &&
+                travelDate.day == selectedDate!.day;
+          }).toList();
+        } else {
+          data = data;
         }
         if (data.isEmpty) {
           emit(Empty());

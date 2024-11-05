@@ -87,6 +87,7 @@ dependencies:
   rating_dialog: ^2.0.3
   flutter_bloc: ^8.1.2
   bloc: ^8.1.2
+  barcode_widget: ^2.0.4
 dev_dependencies:
   flutter_test:
     sdk: flutter

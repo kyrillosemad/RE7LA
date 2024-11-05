@@ -5,6 +5,7 @@ import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/view/modules/main_pages/screens/booked.dart';
 import 'package:re7la/view/modules/main_pages/screens/explore.dart';
 import 'package:re7la/view/modules/main_pages/screens/account.dart';
+import 'package:re7la/view/modules/main_pages/screens/tickets.dart';
 import 'package:sizer/sizer.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomePageState extends State<HomePage> {
     return [
       const Explore(),
       const Booked(),
+      const Tickets(),
       const AccountPage(),
     ];
   }
@@ -39,6 +41,11 @@ class _HomePageState extends State<HomePage> {
           activeColorPrimary: AppColor.primaryColor,
           icon: const Icon(Icons.bookmark_added),
           title: "Booked",
+          textStyle: TextStyle(fontSize: 15.sp)),
+      PersistentBottomNavBarItem(
+          activeColorPrimary: AppColor.primaryColor,
+          icon: const Icon(Icons.train),
+          title: "Tickets",
           textStyle: TextStyle(fontSize: 15.sp)),
       PersistentBottomNavBarItem(
           activeColorPrimary: AppColor.primaryColor,
@@ -76,10 +83,10 @@ class _HomePageState extends State<HomePage> {
       ),
       screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
-        curve: Curves.ease,
+        curve: Curves.easeInQuad,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style1,
+      navBarStyle: NavBarStyle.style9,
     );
   }
 }

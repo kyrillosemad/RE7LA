@@ -11,6 +11,8 @@ class Success<T> extends AppState {
   Success(this.data);
 }
 
+class SelectedDate extends AppState {}
+
 class Empty extends AppState {}
 
 class ServerError extends AppState {}

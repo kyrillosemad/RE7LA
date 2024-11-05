@@ -1,15 +1,12 @@
 import 'package:get/get.dart';
 import 'package:re7la/core/classes/request.dart';
 import 'package:re7la/core/constants/api_links.dart';
+import 'package:re7la/core/services/services.dart';
 
-import '../../core/services/services.dart';
-
-bookSeatReq(seatsIds, ticketTravelId) {
+viewTicketsReq() {
   Services services = Get.find<Services>();
-  var response = Request().request(AppLink.bookSeatApi, {
-    "seat_ids": seatsIds,
+  var response = Request().request(AppLink.viewTickets, {
     "owner_id": services.sharedPref!.getString("userId"),
-    'ticket_travel_id': ticketTravelId
   });
   return response;
 }

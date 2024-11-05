@@ -15,10 +15,12 @@ class BookingDetailsCubit extends Cubit<AppState> {
   var totalPrice = Get.arguments['totalPrice'];
   var seats = Get.arguments['seats'];
   var seatsIds = Get.arguments['seatsIds'];
+  var travelId = Get.arguments['travelId'];
   payAndCompleteBooking(BuildContext context) async {
     //pay
     emit(Loading());
-    Either<Status, Map> response = await bookSeatReq(seatsIds.toString());
+    Either<Status, Map> response =
+        await bookSeatReq(seatsIds.toString(), travelId.toString());
     response.fold((l) {
       emit(GeneralError());
       errorDialog("There's Something Wrong , \n $l", context);

@@ -1,5 +1,5 @@
 class AppLink {
-  static const String server = "http://192.168.196.1/re7la";
+  static const String server = "http://192.168.1.10/re7la";
 ///////////////////////////////////////////////////////////////////////////////
   static const String signUpApi = "$server/auth/signup.php";
   static const String loginApi = "$server/auth/login.php";
@@ -14,4 +14,6 @@ class AppLink {
   ////////////////////////////////////////////////////////////////////////////////
   static const String bookSeatApi = "$server/seats/book_seat.php";
   static const String cancelBookingApi = "$server/seats/cancel_booking.php";
+  ////////////////////////////////////////////////////////////////////////////////
+  static const String viewTickets = "$server/tickets/view_tickets.php";
 }

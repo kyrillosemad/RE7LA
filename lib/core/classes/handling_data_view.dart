@@ -28,7 +28,7 @@ class HandlingDataView extends StatelessWidget {
     } else if (state is Loading) {
       print("loading");
       return Center(
-        child: Lottie.asset(AppImages().loading, height: 80),
+        child: Lottie.asset(AppImages().error2, height: 80),
       );
     } else if (state is Success) {
       print("success");

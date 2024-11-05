@@ -5,6 +5,7 @@ import 'package:re7la/core/functions/app_exit_alert.dart';
 import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view%20model/main_pages/explore_cubit.dart';
 import 'package:re7la/view/modules/main_pages/widgets/explore_appbar.dart';
+import 'package:re7la/view/modules/main_pages/widgets/explore_select_date.dart';
 import 'package:re7la/view/modules/main_pages/widgets/explore_travel_card.dart';
 import 'package:sizer/sizer.dart';
 
@@ -34,6 +35,12 @@ class _ExploreState extends State<Explore> {
                   child: Column(
                     children: [
                       ExplorePageAppbar(controller: controller),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      SelectDate(
+                        controller: controller,
+                      ),
                       BlocBuilder<ExploreCubit, AppState>(
                         builder: (context, state) {
                           return Expanded(

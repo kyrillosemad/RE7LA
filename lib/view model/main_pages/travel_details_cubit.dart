@@ -45,6 +45,7 @@ class TravelDetailsCubit extends Cubit<AppState> {
     TravelModel travelModel = TravelModel.fromJson(data);
     Get.toNamed(AppRoutes().bookingDetails, arguments: {
       "seatPrice": travelModel.travelPrice,
+      "travelId": travelModel.travelId,
       "totalPrice": selectedSeat.length * travelModel.travelPrice!.toInt(),
       "seats": selectedSeat,
       "seatsIds": seatsIds,
