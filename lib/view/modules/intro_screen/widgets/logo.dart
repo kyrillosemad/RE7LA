@@ -8,12 +8,12 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 85.w,
+      width: 80.w,
       height: 35.h,
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                AppImages().logo,
+                AppImages().trainLogo,
               ),
               fit: BoxFit.contain)),
     );

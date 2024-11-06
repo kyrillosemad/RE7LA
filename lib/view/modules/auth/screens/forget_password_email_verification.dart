@@ -37,7 +37,7 @@ class ForgetPasswordEmailVerification extends StatelessWidget {
                       height: 30,
                     ),
                     Text(
-                      "Enter The Verification Code \n Sent To \n Koko99@gmail.com",
+                      "Enter The Verification Code \n Sent To \n ${controller.email}",
                       style: AppTextStyles().mainBodies,
                       textAlign: TextAlign.center,
                     ),
@@ -53,7 +53,7 @@ class ForgetPasswordEmailVerification extends StatelessWidget {
                       showFieldAsBox: true,
                       onCodeChanged: (String code) {},
                       onSubmit: (String verificationCode) {
-                        controller.goToResetPassword();
+                        controller.checkCode(verificationCode, context);
                       },
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/constants/images.dart';
 import '../../view model/app_states.dart';
 
@@ -16,32 +17,66 @@ class HandlingDataView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (state is InternetError) {
-      print("internet_error");
       return Center(
-        child: Lottie.asset(AppImages().error, height: 170),
+        child: Lottie.asset(AppImages().offline, height: 250),
       );
     } else if (state is ServerError) {
-      print("server_error");
       return Center(
-        child: Lottie.asset(AppImages().error2, height: 300),
+        child: Lottie.asset(AppImages().error, height: 300),
       );
     } else if (state is Loading) {
-      print("loading");
       return Center(
-        child: Lottie.asset(AppImages().error2, height: 400),
+        child: Lottie.asset(AppImages().loading, height: 200),
       );
     } else if (state is Success) {
-      print("success");
       return widget;
     } else if (state is Empty) {
-      print("empty");
-      return Center(
-        child: Lottie.asset(AppImages().error2, height: 200),
+      return const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.hourglass_empty,
+              size: 50,
+              color: AppColor.primaryColor,
+            ),
+            Center(
+              child: Text("Not Founded",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.primaryColor,
+                  )),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+          ],
+        ),
       );
     } else if (state is EmptySearch) {
-      print("empty Search");
       return const Center(
-        child: Text("Please Enter Your Distination"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.location_on_outlined,
+              size: 50,
+              color: AppColor.primaryColor,
+            ),
+            Center(
+              child: Text("Please Enter Your Destination",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.primaryColor,
+                  )),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+          ],
+        ),
       );
     } else {
       return Container();

@@ -37,7 +37,6 @@ class IntroScreen extends StatelessWidget {
                         ),
                       ),
                       const Logo(),
-                      SizedBox(height: 3.h),
                       const IntroTitle(),
                       SizedBox(height: 4.h),
                       Column(

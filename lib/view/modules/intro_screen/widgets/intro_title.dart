@@ -9,7 +9,7 @@ class IntroTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       "Quick & Easy \n To travel \n anywhere & anytime ",
-      style: TextStyle(fontSize: 22.sp, color: AppColor.primaryColor),
+      style: TextStyle(fontSize: 20.sp, color: AppColor.primaryColor),
       textAlign: TextAlign.center,
     );
   }

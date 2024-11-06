@@ -11,7 +11,7 @@ class AuthLogo extends StatelessWidget {
       width: 80.w,
       height: 20.h,
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(AppImages().logo)),
+        image: DecorationImage(image: AssetImage(AppImages().trainLogo)),
       ),
     );
   }

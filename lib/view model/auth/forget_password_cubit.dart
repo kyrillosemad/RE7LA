@@ -10,10 +10,8 @@ class ForgetPasswordCubit extends Cubit<AppState> {
   GlobalKey<FormState> key = GlobalKey<FormState>();
 
   goToVerificationCode() {
-    print("hho");
     if (key.currentState!.validate()) {
-      print("hopppp");
-      return Get.toNamed(AppRoutes().forgetPasswordEmailVerification);
+      return Get.toNamed(AppRoutes().forgetPasswordEmailVerification,arguments: {'email':email.text});
     }
   }
 
