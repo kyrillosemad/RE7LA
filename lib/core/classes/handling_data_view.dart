@@ -23,12 +23,12 @@ class HandlingDataView extends StatelessWidget {
     } else if (state is ServerError) {
       print("server_error");
       return Center(
-        child: Lottie.asset(AppImages().error, height: 200),
+        child: Lottie.asset(AppImages().error2, height: 300),
       );
     } else if (state is Loading) {
       print("loading");
       return Center(
-        child: Lottie.asset(AppImages().error2, height: 80),
+        child: Lottie.asset(AppImages().error2, height: 400),
       );
     } else if (state is Success) {
       print("success");
@@ -37,6 +37,11 @@ class HandlingDataView extends StatelessWidget {
       print("empty");
       return Center(
         child: Lottie.asset(AppImages().error2, height: 200),
+      );
+    } else if (state is EmptySearch) {
+      print("empty Search");
+      return const Center(
+        child: Text("Please Enter Your Distination"),
       );
     } else {
       return Container();

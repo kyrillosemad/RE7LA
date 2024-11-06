@@ -3,11 +3,11 @@ class TicketModel {
   int? ticketOwnerId;
   int? ticketReservationCode;
   int? ticketTravelId;
+  String? ticketTravelFrom;
+  String? ticketTravelTo;
+  String? ticketTravelDate;
   int? travelId;
-  String? travelFrom;
-  String? travelTo;
   int? travelPrice;
-  String? travelDate;
   List<Seats>? seats;
 
   TicketModel(
@@ -15,11 +15,11 @@ class TicketModel {
       this.ticketOwnerId,
       this.ticketReservationCode,
       this.ticketTravelId,
+      this.ticketTravelFrom,
+      this.ticketTravelTo,
+      this.ticketTravelDate,
       this.travelId,
-      this.travelFrom,
-      this.travelTo,
       this.travelPrice,
-      this.travelDate,
       this.seats});
 
   TicketModel.fromJson(Map<String, dynamic> json) {
@@ -27,11 +27,11 @@ class TicketModel {
     ticketOwnerId = json['ticket_owner_id'];
     ticketReservationCode = json['ticket_reservation_code'];
     ticketTravelId = json['ticket_travel_id'];
+    ticketTravelFrom = json['ticket_travel_from'];
+    ticketTravelTo = json['ticket_travel_to'];
+    ticketTravelDate = json['ticket_travel_date'];
     travelId = json['travel_id'];
-    travelFrom = json['travel_from'];
-    travelTo = json['travel_to'];
     travelPrice = json['travel_price'];
-    travelDate = json['travel_date'];
     if (json['seats'] != null) {
       seats = <Seats>[];
       json['seats'].forEach((v) {
@@ -46,11 +46,11 @@ class TicketModel {
     data['ticket_owner_id'] = ticketOwnerId;
     data['ticket_reservation_code'] = ticketReservationCode;
     data['ticket_travel_id'] = ticketTravelId;
+    data['ticket_travel_from'] = ticketTravelFrom;
+    data['ticket_travel_to'] = ticketTravelTo;
+    data['ticket_travel_date'] = ticketTravelDate;
     data['travel_id'] = travelId;
-    data['travel_from'] = travelFrom;
-    data['travel_to'] = travelTo;
     data['travel_price'] = travelPrice;
-    data['travel_date'] = travelDate;
     if (seats != null) {
       data['seats'] = seats!.map((v) => v.toJson()).toList();
     }

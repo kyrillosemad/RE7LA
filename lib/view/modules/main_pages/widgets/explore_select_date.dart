@@ -66,14 +66,18 @@ class SelectDate extends StatelessWidget {
                     SizedBox(width: 2.w),
                     const Text(
                       'Select Date',
-                      style: TextStyle(color: AppColor.primaryColor),
+                      style: TextStyle(
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
                     ),
                     SizedBox(width: 10.w),
                     Text(
                       controller.selectedDate != null
                           ? "${controller.selectedDate!.day}-${controller.selectedDate!.month}-${controller.selectedDate!.year}"
                           : "Not Selected",
-                      style: const TextStyle(color: AppColor.primaryColor),
+                      style: const TextStyle(
+                          color: AppColor.primaryColor,
+                          fontWeight: FontWeight.bold),
                     ),
                     IconButton(
                         onPressed: () {

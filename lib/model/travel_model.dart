@@ -9,6 +9,7 @@ class TravelModel {
   int? travelPrice;
   int? travelComplete;
   List<Coaches>? coaches;
+  List<Stations>? stations;
 
   TravelModel(
       {this.travelId,
@@ -20,7 +21,8 @@ class TravelModel {
       this.travelDate,
       this.travelPrice,
       this.travelComplete,
-      this.coaches});
+      this.coaches,
+      this.stations});
 
   TravelModel.fromJson(Map<String, dynamic> json) {
     travelId = json['travel_id'];
@@ -38,6 +40,12 @@ class TravelModel {
         coaches!.add(Coaches.fromJson(v));
       });
     }
+    if (json['stations'] != null) {
+      stations = <Stations>[];
+      json['stations'].forEach((v) {
+        stations!.add(Stations.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -53,6 +61,9 @@ class TravelModel {
     data['travel_complete'] = travelComplete;
     if (coaches != null) {
       data['coaches'] = coaches!.map((v) => v.toJson()).toList();
+    }
+    if (stations != null) {
+      data['stations'] = stations!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -93,13 +104,17 @@ class Seats {
   int? ownerId;
   int? travelId;
   int? seatStatus;
+  int? reservationCode;
+  int? cancelCode;
 
   Seats(
       {this.seatId,
       this.seatNumber,
       this.ownerId,
       this.travelId,
-      this.seatStatus});
+      this.seatStatus,
+      this.reservationCode,
+      this.cancelCode});
 
   Seats.fromJson(Map<String, dynamic> json) {
     seatId = json['seat_id'];
@@ -107,6 +122,8 @@ class Seats {
     ownerId = json['owner_id'];
     travelId = json['travel_id'];
     seatStatus = json['seat_status'];
+    reservationCode = json['reservation_code'];
+    cancelCode = json['cancel_code'];
   }
 
   Map<String, dynamic> toJson() {
@@ -116,6 +133,27 @@ class Seats {
     data['owner_id'] = ownerId;
     data['travel_id'] = travelId;
     data['seat_status'] = seatStatus;
+    data['reservation_code'] = reservationCode;
+    data['cancel_code'] = cancelCode;
+    return data;
+  }
+}
+
+class Stations {
+  String? stationName;
+  String? stationArrivalDate;
+
+  Stations({this.stationName, this.stationArrivalDate});
+
+  Stations.fromJson(Map<String, dynamic> json) {
+    stationName = json['station_name'];
+    stationArrivalDate = json['station_arrival_date'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['station_name'] = stationName;
+    data['station_arrival_date'] = stationArrivalDate;
     return data;
   }
 }

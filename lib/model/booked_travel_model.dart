@@ -9,6 +9,7 @@ class BookedTravelModel {
   int? travelPrice;
   int? travelComplete;
   List<Coaches>? coaches;
+  List<Stations>? stations;
 
   BookedTravelModel(
       {this.travelId,
@@ -20,7 +21,8 @@ class BookedTravelModel {
       this.travelDate,
       this.travelPrice,
       this.travelComplete,
-      this.coaches});
+      this.coaches,
+      this.stations});
 
   BookedTravelModel.fromJson(Map<String, dynamic> json) {
     travelId = json['travel_id'];
@@ -38,6 +40,12 @@ class BookedTravelModel {
         coaches!.add(Coaches.fromJson(v));
       });
     }
+    if (json['stations'] != null) {
+      stations = <Stations>[];
+      json['stations'].forEach((v) {
+        stations!.add(Stations.fromJson(v));
+      });
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -53,6 +61,9 @@ class BookedTravelModel {
     data['travel_complete'] = travelComplete;
     if (coaches != null) {
       data['coaches'] = coaches!.map((v) => v.toJson()).toList();
+    }
+    if (stations != null) {
+      data['stations'] = stations!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -124,6 +135,25 @@ class Seats {
     data['seat_status'] = seatStatus;
     data['reservation_code'] = reservationCode;
     data['cancel_code'] = cancelCode;
+    return data;
+  }
+}
+
+class Stations {
+  String? stationName;
+  String? stationArrivalDate;
+
+  Stations({this.stationName, this.stationArrivalDate});
+
+  Stations.fromJson(Map<String, dynamic> json) {
+    stationName = json['station_name'];
+    stationArrivalDate = json['station_arrival_date'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['station_name'] = stationName;
+    data['station_arrival_date'] = stationArrivalDate;
     return data;
   }
 }

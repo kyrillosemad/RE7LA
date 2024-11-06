@@ -15,6 +15,8 @@ class SelectedDate extends AppState {}
 
 class Empty extends AppState {}
 
+class EmptySearch extends AppState {}
+
 class ServerError extends AppState {}
 
 class InternetError extends AppState {}

@@ -74,39 +74,31 @@ class AccountPage extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      customButton(
-                        icon: Icons.edit,
-                        label: "Edit Profile",
-                        color: AppColor.primaryColor,
-                        onPressed: () {},
-                      ),
-                      SizedBox(height: 2.h),
-                      customButton(
-                        icon: Icons.lock,
-                        label: "Change Password",
-                        color: Colors.orange,
-                        onPressed: () {},
-                      ),
-                      SizedBox(height: 2.h),
-                      customButton(
-                        icon: Icons.logout,
-                        label: "Logout",
-                        color: Colors.red,
-                        onPressed: () {
-                          Get.defaultDialog(
-                            title: "Are You Sure To Logout ?",
-                            titleStyle:
-                                const TextStyle(color: AppColor.primaryColor),
-                            content: Container(),
-                            confirmTextColor: Colors.white,
-                            cancelTextColor: AppColor.primaryColor,
-                            buttonColor: AppColor.primaryColor,
-                            onCancel: () {},
-                            onConfirm: () {
-                              controller.logout();
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Card(
+                          color: const Color.fromARGB(255, 220, 220, 220),
+                          child: customButton(
+                            icon: Icons.logout,
+                            label: "Logout",
+                            color: Colors.red,
+                            onPressed: () {
+                              Get.defaultDialog(
+                                title: "Are You Sure To Logout ?",
+                                titleStyle: const TextStyle(
+                                    color: AppColor.primaryColor),
+                                content: Container(),
+                                confirmTextColor: Colors.white,
+                                cancelTextColor: AppColor.primaryColor,
+                                buttonColor: AppColor.primaryColor,
+                                onCancel: () {},
+                                onConfirm: () {
+                                  controller.logout();
+                                },
+                              );
                             },
-                          );
-                        },
+                          ),
+                        ),
                       ),
                     ],
                   ),

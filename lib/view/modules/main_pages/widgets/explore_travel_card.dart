@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/model/travel_model.dart';
 import 'package:re7la/view%20model/main_pages/explore_cubit.dart';
+import 'package:re7la/view/modules/main_pages/widgets/explore_show_stations.dart';
 import 'package:sizer/sizer.dart';
 import 'package:jiffy/jiffy.dart';
 
@@ -116,29 +117,36 @@ class ExploreTravelCard extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 15),
-                          InkWell(
-                            onTap: () {
-                              controller
-                                  .goToTravelDetails(controller.data[index]);
-                            },
-                            child: Container(
-                              width: 60.w,
-                              height: 6.h,
-                              decoration: BoxDecoration(
-                                color: AppColor.primaryColor,
-                                borderRadius: BorderRadius.circular(8.sp),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  "More Details",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  controller.goToTravelDetails(
+                                      controller.data[index]);
+                                },
+                                child: Container(
+                                  width: 40.w,
+                                  height: 6.h,
+                                  decoration: BoxDecoration(
+                                    color: AppColor.primaryColor,
+                                    borderRadius: BorderRadius.circular(8.sp),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      "More Details",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14),
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
+                              ExploreShowStations(travelModel: travelModel),
+                            ],
                           ),
+                          SizedBox(height: 10.sp),
                         ],
                       ),
                     ),

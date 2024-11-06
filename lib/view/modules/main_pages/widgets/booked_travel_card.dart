@@ -4,6 +4,7 @@ import 'package:jiffy/jiffy.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/model/booked_travel_model.dart';
 import 'package:re7la/view%20model/main_pages/booked_cubit.dart';
+import 'package:re7la/view/modules/main_pages/widgets/booked_show_stations.dart';
 import 'package:sizer/sizer.dart';
 
 class BookedTravelCard extends StatelessWidget {
@@ -65,7 +66,7 @@ class BookedTravelCard extends StatelessWidget {
                                   color: AppColor.thirdColor),
                               SizedBox(width: 5.w),
                               Text(
-                                "From: ${bookedTravelMode.travelFrom} → To: ${bookedTravelMode.travelTo}",
+                                "${bookedTravelMode.travelFrom} → ...... → ${bookedTravelMode.travelTo}",
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontSize: 14.sp,
@@ -109,35 +110,8 @@ class BookedTravelCard extends StatelessWidget {
                             ],
                           ),
                           const SizedBox(height: 15),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  controller.goToTravelDetails(
-                                      controller.data[index]);
-                                },
-                                child: Container(
-                                  width: 60.w,
-                                  height: 6.h,
-                                  decoration: BoxDecoration(
-                                    color: AppColor.primaryColor,
-                                    borderRadius: BorderRadius.circular(8.sp),
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      "More Details",
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
+                          BookedShowStations(
+                              bookedTravelModel: bookedTravelMode),
                         ],
                       ),
                     ),

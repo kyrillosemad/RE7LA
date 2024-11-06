@@ -53,7 +53,7 @@ class TicketTravelCard extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                Jiffy(ticketModel.travelDate).MMMEd,
+                                Jiffy(ticketModel.ticketTravelDate).MMMEd,
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontWeight: FontWeight.bold,
@@ -70,7 +70,7 @@ class TicketTravelCard extends StatelessWidget {
                                   color: AppColor.thirdColor),
                               SizedBox(width: 5.w),
                               Text(
-                                "From: ${ticketModel.travelFrom} → To: ${ticketModel.travelTo}",
+                                "From: ${ticketModel.ticketTravelFrom} → To: ${ticketModel.ticketTravelTo}",
                                 style: TextStyle(
                                   color: AppColor.primaryColor,
                                   fontSize: 14.sp,
@@ -80,7 +80,6 @@ class TicketTravelCard extends StatelessWidget {
                             ],
                           ),
                           const Divider(color: Colors.grey, height: 20),
-                          // Travel time and seat info
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -90,7 +89,7 @@ class TicketTravelCard extends StatelessWidget {
                                       color: AppColor.secondColor),
                                   SizedBox(width: 5.sp),
                                   Text(
-                                    "Time: ${Jiffy(ticketModel.travelDate).Hm}",
+                                    "Time: ${Jiffy(ticketModel.ticketTravelDate).Hm}",
                                     style: TextStyle(
                                       color: AppColor.primaryColor,
                                       fontSize: 14.sp,

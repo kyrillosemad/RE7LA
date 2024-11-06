@@ -49,6 +49,9 @@ class TravelDetailsCubit extends Cubit<AppState> {
       "totalPrice": selectedSeat.length * travelModel.travelPrice!.toInt(),
       "seats": selectedSeat,
       "seatsIds": seatsIds,
+      'travelFrom': travelModel.travelFrom,
+      'travelTo': travelModel.travelTo,
+      'travelDate': travelModel.travelDate
     });
   }
 }
