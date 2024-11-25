@@ -71,12 +71,12 @@ class ResetPassword extends StatelessWidget {
                             CustomField(
                               controller: controller.newPassword,
                               title: "New Password",
-                              icon: controller.isSecured == true
+                              icon: controller.newPasswordIsSecured == true
                                   ? const Icon(Icons.lock_outline)
                                   : const Icon(Icons.lock_open),
-                              isSecured: controller.isSecured,
+                              isSecured: controller.newPasswordIsSecured,
                               type: TextInputType.name,
-                              iconFun: controller.changeSecured,
+                              iconFun: controller.newPasswordChangeSecured,
                               validator: (value) {
                                 return validator(value, 30, 4, "password");
                               },
@@ -84,12 +84,27 @@ class ResetPassword extends StatelessWidget {
                             SizedBox(
                               height: 4.h,
                             ),
-                            CustomButton(
-                                title: "Save",
-                                onTap: () {},
-                                textColor: Colors.white,
-                                borderColor: Colors.transparent,
-                                color: AppColor.primaryColor)
+                            BlocBuilder<ResetPasswordCubit, AppState>(
+                              builder: (context, state) {
+                                if (state is Loading) {
+                                  return const Center(
+                                    child: CircularProgressIndicator(
+                                      backgroundColor: AppColor.primaryColor,
+                                      color: Colors.white,
+                                    ),
+                                  );
+                                } else {
+                                  return CustomButton(
+                                      title: "Save",
+                                      onTap: () {
+                                        controller.resetPassword(context);
+                                      },
+                                      textColor: Colors.white,
+                                      borderColor: Colors.transparent,
+                                      color: AppColor.primaryColor);
+                                }
+                              },
+                            )
                           ],
                         ),
                       );

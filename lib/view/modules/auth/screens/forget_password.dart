@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/constants/text_styles.dart';
 import 'package:re7la/core/functions/validator.dart';
+import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view%20model/auth/forget_password_cubit.dart';
 import 'package:re7la/view/modules/intro_screen/widgets/custom_button.dart';
 import 'package:re7la/view/widgets/custom_appbar.dart';
@@ -57,21 +58,32 @@ class ForgetPassword extends StatelessWidget {
                             type: TextInputType.emailAddress,
                             iconFun: () {},
                             validator: (value) {
-                          return  validator(value, 30, 10, "email");
-                             
+                              return validator(value, 30, 10, "email");
                             },
                           ),
                           SizedBox(
                             height: 3.h,
                           ),
-                          CustomButton(
-                              title: "Send",
-                              onTap: () {
-                                controller.goToVerificationCode();
-                              },
-                              textColor: Colors.white,
-                              borderColor: Colors.transparent,
-                              color: AppColor.primaryColor)
+                          BlocBuilder<ForgetPasswordCubit, AppState>(
+                            builder: (context, state) {
+                              if (state is Loading) {
+                                return const Center(
+                                  child: CircularProgressIndicator(
+                                      backgroundColor: AppColor.primaryColor,
+                                      color: Colors.white),
+                                );
+                              } else {
+                                return CustomButton(
+                                    title: "Send",
+                                    onTap: () {
+                                      controller.sendCode(context);
+                                    },
+                                    textColor: Colors.white,
+                                    borderColor: Colors.transparent,
+                                    color: AppColor.primaryColor);
+                              }
+                            },
+                          )
                         ],
                       ))
                 ],

@@ -4,6 +4,12 @@ class AppLink {
   static const String signUpApi = "$server/auth/signup.php";
   static const String loginApi = "$server/auth/login.php";
   static const String verifyCodeApi = "$server/auth/verifycode.php";
+  static const String forgetPasswordCheckEmail =
+      "$server/forgetpassword/checkemail.php";
+  static const String forgetPasswordVerifyCode =
+      "$server/forgetpassword/verifycode.php";
+  static const String forgetPasswordResetPassword =
+      "$server/forgetpassword/resetpassword.php";
   ///////////////////////////////////////////////////////////////////////////////
   static const String addTravelApi = "$server/travels/add_travel.php";
   static const String deleteTravelApi = "$server/travels/delete_travel.php";

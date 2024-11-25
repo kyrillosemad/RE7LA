@@ -117,16 +117,6 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ),
                         ),
-                        InkWell(
-                          onTap: () {
-                            controller.goToForgetPassword();
-                          },
-                          child: const Text(
-                            "Forget Password ?",
-                            style: TextStyle(
-                                fontSize: 17, color: AppColor.thirdColor),
-                          ),
-                        ),
                         SizedBox(height: 2.h),
                         BlocBuilder<SignUpCubit, AppState>(
                           builder: (context, state) {
@@ -150,7 +140,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         AuthQuestion(
                             text1: "Have An Account ?",
-                            text2: "Login",
+                            text2: " Login",
                             onTap: () {
                               controller.goToLogin();
                             }),

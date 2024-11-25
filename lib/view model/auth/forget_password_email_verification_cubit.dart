@@ -5,7 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:re7la/core/classes/status.dart';
 import 'package:re7la/core/constants/routes_name.dart';
-import 'package:re7la/data/auth/verifycode_req.dart';
+import 'package:re7la/data/auth/forget_password/verifycode_req.dart';
 import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view/widgets/error_dialog.dart';
 
@@ -15,14 +15,14 @@ class ForgetPasswordEmailVerificationCubit extends Cubit<AppState> {
 
   checkCode(verifycode, BuildContext context) async {
     emit(Loading());
-    Either<Status, Map> response = await verifyCodeReq(email, verifycode);
+    Either<Status, Map> response = await forgetPasswordVerifyCodeReq(email, verifycode);
     response.fold((l) {
       emit(GeneralError());
       errorDialog("There's Something Wrong , \n $l", context);
     }, (r) {
       if (r['status'] == "success") {
         emit(Success([]));
-        Get.toNamed(AppRoutes().resetPassword);
+        Get.toNamed(AppRoutes().resetPassword,arguments: {"email":email});
       } else {
         emit(GeneralError());
         errorDialog("The Verification Code Is Wrong", context);

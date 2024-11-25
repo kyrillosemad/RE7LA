@@ -25,8 +25,13 @@ class HandlingDataView extends StatelessWidget {
         child: Lottie.asset(AppImages().error, height: 300),
       );
     } else if (state is Loading) {
-      return Center(
-        child: Lottie.asset(AppImages().loading, height: 200),
+      return const Center(
+        child: Center(
+          child: CircularProgressIndicator(
+              color: Colors.white,
+              backgroundColor: AppColor.primaryColor,
+              strokeWidth: 5),
+        ),
       );
     } else if (state is Success) {
       return widget;

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/constants/text_styles.dart';
+import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view%20model/auth/forget_password_email_verification_cubit.dart';
 import 'package:re7la/view/widgets/custom_appbar.dart';
 import 'package:sizer/sizer.dart';
@@ -44,18 +45,31 @@ class ForgetPasswordEmailVerification extends StatelessWidget {
                     SizedBox(
                       height: 2.h,
                     ),
-                    OtpTextField(
-                      fieldWidth: 50,
-                      enabledBorderColor: AppColor.black,
-                      focusedBorderColor: AppColor.primaryColor,
-                      borderRadius: BorderRadius.circular(20),
-                      numberOfFields: 5,
-                      showFieldAsBox: true,
-                      onCodeChanged: (String code) {},
-                      onSubmit: (String verificationCode) {
-                        controller.checkCode(verificationCode, context);
+                    BlocBuilder<ForgetPasswordEmailVerificationCubit, AppState>(
+                      builder: (context, state) {
+                        if (state is Loading) {
+                          return const Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: AppColor.primaryColor,
+                              color: Colors.white,
+                            ),
+                          );
+                        } else {
+                          return OtpTextField(
+                            fieldWidth: 50,
+                            enabledBorderColor: AppColor.black,
+                            focusedBorderColor: AppColor.primaryColor,
+                            borderRadius: BorderRadius.circular(20),
+                            numberOfFields: 5,
+                            showFieldAsBox: true,
+                            onCodeChanged: (String code) {},
+                            onSubmit: (String verificationCode) {
+                              controller.checkCode(verificationCode, context);
+                            },
+                          );
+                        }
                       },
-                    ),
+                    )
                   ],
                 ),
               ),

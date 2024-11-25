@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/functions/app_exit_alert.dart';
 import 'package:re7la/view%20model/main_pages/account_cubit.dart';
-import 'package:re7la/view/modules/main_pages/widgets/account_custom_button.dart';
 import 'package:re7la/view/modules/main_pages/widgets/account_info_row.dart';
 import 'package:sizer/sizer.dart';
 
@@ -72,36 +71,44 @@ class AccountPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Card(
-                          color: const Color.fromARGB(255, 220, 220, 220),
-                          child: customButton(
-                            icon: Icons.logout,
-                            label: "Logout",
-                            color: Colors.red,
-                            onPressed: () {
-                              Get.defaultDialog(
-                                title: "Are You Sure To Logout ?",
-                                titleStyle: const TextStyle(
-                                    color: AppColor.primaryColor),
-                                content: Container(),
-                                confirmTextColor: Colors.white,
-                                cancelTextColor: AppColor.primaryColor,
-                                buttonColor: AppColor.primaryColor,
-                                onCancel: () {},
-                                onConfirm: () {
-                                  controller.logout();
-                                },
-                              );
-                            },
-                          ),
-                        ),
-                      ),
-                    ],
+                  SizedBox(
+                    height: 10.h,
                   ),
+                  InkWell(
+                    onTap: () {
+                      Get.defaultDialog(
+                        title: "Are You Sure To Logout ?",
+                        titleStyle:
+                            const TextStyle(color: AppColor.primaryColor),
+                        content: Container(),
+                        confirmTextColor: Colors.white,
+                        cancelTextColor: AppColor.primaryColor,
+                        buttonColor: AppColor.primaryColor,
+                        onCancel: () {},
+                        onConfirm: () {
+                          controller.logout();
+                        },
+                      );
+                    },
+                    child: const CircleAvatar(
+                        backgroundColor: AppColor.primaryColor,
+                        radius: 80,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              "Logout",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Icon(
+                              Icons.logout_outlined,
+                              size: 40,
+                              color: Colors.white,
+                            )
+                          ],
+                        )),
+                  )
                 ],
               ),
             ),
