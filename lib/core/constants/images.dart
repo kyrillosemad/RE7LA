@@ -5,5 +5,7 @@ class AppImages {
   final String loading = "${rootLottie}loading.json";
   final String offline = "${rootLottie}offline.json";
   final String logo = "${rootImage}logo.png";
+  final String masterCard = "${rootImage}masterCard.png";
+  final String mobWallet = "${rootImage}mobWallet.png";
   final String trainLogo = "${rootImage}train_logo1.png";
 }

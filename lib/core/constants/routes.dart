@@ -31,5 +31,6 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes().booked: (context) => const Booked(),
   AppRoutes().explore: (context) => const Explore(),
   AppRoutes().busBooking: (context) => const TravelDetails(),
-    AppRoutes().bookingDetails: (context) =>  BookingDetailsPage(),
+  AppRoutes().bookingDetails: (context) => const BookingDetailsPage(),
+  
 };

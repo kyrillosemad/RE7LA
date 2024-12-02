@@ -11,7 +11,7 @@ class TravelDetailsConfirmButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.goToBookingDetails();
+        controller.goToBookingDetails(context);
       },
       child: Center(
         child: Container(

@@ -14,5 +14,6 @@ class AppRoutes {
   final String booked = "booked";
   final String busBooking = "busBooking";
   final String explore = "explore";
-   final String bookingDetails = "bookingDetails";
+  final String bookingDetails = "bookingDetails";
+  final String payment = "payment";
 }

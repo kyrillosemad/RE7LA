@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:re7la/core/constants/routes.dart';
 import 'package:re7la/core/constants/theme.dart';
+import 'package:re7la/core/functions/paymob_with_package/paymob_manager.dart';
 import 'package:re7la/core/services/services.dart';
 import 'package:re7la/view/modules/intro_screen/screens/intro_screen.dart';
 import 'package:re7la/view/modules/main_pages/screens/home_Page.dart';
@@ -9,6 +10,7 @@ import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  paymobManager();
   final services = Get.put(Services());
   await services.init();
   runApp(const Re7la());
@@ -31,6 +33,6 @@ class Re7la extends StatelessWidget {
           theme: theme,
         );
       },
-    );  
+    );
   }
 }

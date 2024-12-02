@@ -8,10 +8,7 @@ class TicketsCubit extends Cubit<AppState> {
   TicketsCubit() : super(Initial());
   var data = [];
 
-showReservationCode()
-{
-
-}
+  showReservationCode() {}
 
   viewBookedTravels() async {
     emit(Loading());
@@ -34,6 +31,5 @@ showReservationCode()
         emit(Empty());
       }
     });
-    print(data);
   }
 }
