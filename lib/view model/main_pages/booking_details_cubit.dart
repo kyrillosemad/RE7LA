@@ -37,7 +37,7 @@ class BookingDetailsCubit extends Cubit<AppState> {
     }, (r) {
       if (r['status'] == "success") {
         emit(Success([]));
-        Get.offAllNamed(AppRoutes().homePage);
+        Get.offAllNamed(AppRoutes().successReservation);
         Get.snackbar(
             "Done", 'The reservation process was completed successfully',
             backgroundColor: Colors.green.withOpacity(0.6),

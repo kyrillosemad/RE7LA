@@ -36,50 +36,37 @@ class HandlingDataView extends StatelessWidget {
     } else if (state is Success) {
       return widget;
     } else if (state is Empty) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.hourglass_empty,
-              size: 50,
-              color: AppColor.primaryColor,
+            Image(
+              image: AssetImage(AppImages().trainImage),
+              height: 180,
             ),
-            Center(
+            const SizedBox(
+              height: 15,
+            ),
+            const Center(
               child: Text("Not Founded",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: AppColor.primaryColor,
+                    color: Colors.black,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
           ],
         ),
       );
     } else if (state is EmptySearch) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.location_on_outlined,
-              size: 50,
-              color: AppColor.primaryColor,
-            ),
-            Center(
-              child: Text("Please Enter Your Destination",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColor.primaryColor,
-                  )),
-            ),
-            SizedBox(
-              height: 5,
-            ),
+            Image(image: AssetImage(AppImages().locationImage)),
           ],
         ),
       );

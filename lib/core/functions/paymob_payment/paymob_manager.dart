@@ -14,7 +14,7 @@
 //       String paymentKey = await _getPaymentKey(
 //         authanticationToken: authanticationToken,
 //         amount: (100 * amount).toString(),
-//         currency: currency,
+        // currency: currency,
 //         orderId: orderId.toString(),
 //       );
 //       return paymentKey;

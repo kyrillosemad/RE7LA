@@ -27,37 +27,38 @@ class _ExploreState extends State<Explore> {
               var controller = context.read<ExploreCubit>();
               controller.viewAllTravels();
               return Scaffold(
+                  backgroundColor: Colors.white,
                   body: WillPopScope(
-                onWillPop: appExitAlert,
-                child: SizedBox(
-                  width: 100.w,
-                  height: 100.h,
-                  child: Column(
-                    children: [
-                      ExplorePageAppbar(controller: controller),
-                      const SizedBox(
-                        height: 10,
+                    onWillPop: appExitAlert,
+                    child: SizedBox(
+                      width: 100.w,
+                      height: 100.h,
+                      child: Column(
+                        children: [
+                          ExplorePageAppbar(controller: controller),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SelectDate(
+                            controller: controller,
+                          ),
+                          BlocBuilder<ExploreCubit, AppState>(
+                            builder: (context, state) {
+                              return Expanded(
+                                child: Center(
+                                  child: HandlingDataView(
+                                    state: state,
+                                    widget: ExploreTravelCard(
+                                        controller: controller),
+                                  ),
+                                ),
+                              );
+                            },
+                          )
+                        ],
                       ),
-                      SelectDate(
-                        controller: controller,
-                      ),
-                      BlocBuilder<ExploreCubit, AppState>(
-                        builder: (context, state) {
-                          return Expanded(
-                            child: Center(
-                              child: HandlingDataView(
-                                state: state,
-                                widget:
-                                    ExploreTravelCard(controller: controller),
-                              ),
-                            ),
-                          );
-                        },
-                      )
-                    ],
-                  ),
-                ),
-              ));
+                    ),
+                  ));
             },
           )),
     );
