@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:re7la/core/classes/status.dart';
 import 'package:re7la/core/constants/routes_name.dart';
-import 'package:re7la/core/functions/paymob_with_package/pay_with_card.dart';
-import 'package:re7la/core/functions/paymob_with_package/pay_with_wallet.dart';
+import 'package:re7la/core/functions/paymob_payment/pay_with_refcode.dart';
+import 'package:re7la/core/functions/paymob_payment/pay_with_card.dart';
+import 'package:re7la/core/functions/paymob_payment/pay_with_wallet.dart';
 import 'package:re7la/data/seats/book_seat_req.dart';
 import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view/widgets/error_dialog.dart';
@@ -22,7 +23,7 @@ class BookingDetailsCubit extends Cubit<AppState> {
   var travelFrom = Get.arguments['travelFrom'];
   var travelTo = Get.arguments['travelTo'];
   var travelDate = Get.arguments['travelDate'];
-
+  String response = "";
   completeBooking(BuildContext context) async {
     emit(Loading());
     Either<Status, Map> response = await bookSeatReq(
@@ -49,16 +50,48 @@ class BookingDetailsCubit extends Cubit<AppState> {
     });
   }
 
+  setInitialState() {
+    emit(Initial());
+  }
+
   payWithCard(BuildContext context, double amount) async {
-    paymobPayWithCard(
-      context,
-      amount,
-      this,
-    );
+    emit(Loading());
+    try {
+      paymobPayWithCard(
+        context,
+        amount,
+        this,
+      );
+    } catch (e) {
+      Get.snackbar("Failed", "There's Something Wrong",
+          backgroundColor: Colors.red.withOpacity(0.5),
+          colorText: Colors.white);
+    }
   }
 
   payWithWallet(
       BuildContext context, double amount, String walletNumber) async {
-    paymobPayWithWallet(context, amount, walletNumber, this);
+    emit(Loading());
+    try {
+      Get.back();
+      paymobPayWithWallet(context, amount, walletNumber, this);
+    } catch (e) {
+      Get.snackbar("Failed", "There's Something Wrong",
+          backgroundColor: Colors.red.withOpacity(0.5),
+          colorText: Colors.white);
+    }
+  }
+
+  payWithRefCodeFun(int amount) async {
+    emit(Loading());
+    response = await PayWithRefCodeClass().payWithRefCode(amount);
+    if (response.isNotEmpty) {
+      emit(Success([]));
+      Get.put(BookingDetailsCubit());
+      Get.offAllNamed(AppRoutes().refCode,
+          arguments: {"controller": this, "response": response});
+    } else {
+      emit(GeneralError());
+    }
   }
 }

@@ -16,5 +16,6 @@ class AppRoutes {
   final String explore = "explore";
   final String bookingDetails = "bookingDetails";
   final String payment = "payment";
+    final String refCode = "refCode";
   final String successReservation = "successReservation";
 }

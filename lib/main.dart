@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:re7la/core/constants/routes.dart';
 import 'package:re7la/core/constants/theme.dart';
-import 'package:re7la/core/functions/paymob_with_package/paymob_manager.dart';
+import 'package:re7la/core/functions/paymob_payment/package_paymob_manager.dart';
 import 'package:re7la/core/services/services.dart';
 import 'package:re7la/view/modules/intro_screen/screens/intro_screen.dart';
 import 'package:re7la/view/modules/main_pages/screens/home_Page.dart';
