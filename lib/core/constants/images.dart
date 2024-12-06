@@ -8,6 +8,7 @@ class AppImages {
   final String masterCard = "${rootImage}masterCard.png";
   final String mobWallet = "${rootImage}mobWallet.png";
   final String refCode = "${rootImage}ref_code.png";
+  final String paypal = "${rootImage}paypal.jpg";
   final String trainLogo = "${rootImage}train_logo1.png";
   final String locationImage = "${rootImage}location.jpg";
   final String trainImage = "${rootImage}train.png";

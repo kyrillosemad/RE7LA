@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:re7la/core/classes/status.dart';
 import 'package:re7la/core/constants/routes_name.dart';
+import 'package:re7la/core/functions/local_notification/local_notification.dart';
 import 'package:re7la/core/functions/paymob_payment/pay_with_refcode.dart';
 import 'package:re7la/core/functions/paymob_payment/pay_with_card.dart';
 import 'package:re7la/core/functions/paymob_payment/pay_with_wallet.dart';
+import 'package:re7la/core/functions/paypal_payment/pay_with_paypal.dart';
 import 'package:re7la/data/seats/book_seat_req.dart';
 import 'package:re7la/view%20model/app_states.dart';
 import 'package:re7la/view/widgets/error_dialog.dart';
@@ -24,6 +26,7 @@ class BookingDetailsCubit extends Cubit<AppState> {
   var travelTo = Get.arguments['travelTo'];
   var travelDate = Get.arguments['travelDate'];
   String response = "";
+
   completeBooking(BuildContext context) async {
     emit(Loading());
     Either<Status, Map> response = await bookSeatReq(
@@ -43,6 +46,16 @@ class BookingDetailsCubit extends Cubit<AppState> {
             "Done", 'The reservation process was completed successfully',
             backgroundColor: Colors.green.withOpacity(0.6),
             colorText: Colors.white);
+
+        // حساب الوقت قبل 6 ساعات من موعد الرحلة
+        DateTime notificationTime =
+            DateTime.parse(travelDate).subtract(const Duration(hours: 6));
+        // إرسال إشعار قبل 6 ساعات
+        LocalNotificationService.showScheduledNotification(
+          title: 'Reminder',
+          body: 'Your trip is in 6 hours, get ready!',
+          scheduledTime: notificationTime,
+        );
       } else {
         emit(GeneralError());
         errorDialog("There's Something Wrong", context);
@@ -80,6 +93,11 @@ class BookingDetailsCubit extends Cubit<AppState> {
           backgroundColor: Colors.red.withOpacity(0.5),
           colorText: Colors.white);
     }
+  }
+
+  payWithPaypalFun(BuildContext context) {
+    emit(Loading());
+    payWithPaypal(context, this, totalPrice.toString());
   }
 
   payWithRefCodeFun(int amount) async {

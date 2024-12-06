@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 
+//api key from paymob settings
+//id integration from paymob developers choose any method id
 class PaymobManager {
   Future<String> getPaymentKey(int amount, String currency) async {
     try {
@@ -61,7 +63,7 @@ class PaymobManager {
 
       "auth_token": authanticationToken, //From First Api
       "order_id": orderId, //From Second Api  >>(STRING)<<
-      "integration_id": '4827033', //Integration Id Of The Payment Method
+      "integration_id": '4892410', //Integration Id Of The Payment Method
 
       "amount_cents": amount,
       "currency": currency,

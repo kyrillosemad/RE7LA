@@ -159,6 +159,14 @@ class BookingDetailsPage extends StatelessWidget {
                                     widget: Image(
                                         image: AssetImage(AppImages().refCode)),
                                   ),
+                                  PaymentMethod(
+                                    function: () {
+                                      controller.payWithPaypalFun(context);
+                                    },
+                                    name: "PayPal",
+                                    widget: Image(
+                                        image: AssetImage(AppImages().paypal)),
+                                  ),
                                 ],
                               );
                             }

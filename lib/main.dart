@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:re7la/core/constants/routes.dart';
 import 'package:re7la/core/constants/theme.dart';
+import 'package:re7la/core/functions/local_notification/local_notification.dart';
 import 'package:re7la/core/functions/paymob_payment/package_paymob_manager.dart';
 import 'package:re7la/core/services/services.dart';
 import 'package:re7la/view/modules/intro_screen/screens/intro_screen.dart';
@@ -10,6 +11,7 @@ import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await LocalNotificationService.initialize();
   paymobManager();
   final services = Get.put(Services());
   await services.init();
