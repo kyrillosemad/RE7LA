@@ -10,8 +10,8 @@ class AppImages {
   final String refCode = "${rootImage}ref_code.png";
   final String paypal = "${rootImage}paypal.jpg";
   final String trainLogo = "${rootImage}train_logo1.png";
-  final String locationImage = "${rootImage}location.jpg";
   final String trainImage = "${rootImage}train.png";
   final String payment = "${rootImage}payment.jpg";
   final String approved = "${rootImage}approved.jpg";
+  final String train2 = "${rootImage}train2.png";
 }

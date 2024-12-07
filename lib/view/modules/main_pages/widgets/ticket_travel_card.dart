@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/model/ticket_model.dart';
@@ -29,8 +28,8 @@ class TicketTravelCard extends StatelessWidget {
                   TicketModel ticketModel =
                       TicketModel.fromJson(controller.data[index]);
                   return Card(
-                    color: const Color.fromARGB(255, 240, 240, 240),
-                    elevation: 4,
+                    color: const Color.fromARGB(255, 222, 222, 222),
+                    elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.sp),
                     ),
@@ -155,37 +154,16 @@ class TicketTravelCard extends StatelessWidget {
                             ),
                           ],
                           const SizedBox(height: 15),
-                          Center(
-                            child: InkWell(
-                              onTap: () {
-                                Get.defaultDialog(
-                                    title: "reservation Code",
-                                    titleStyle: const TextStyle(
-                                        color: AppColor.primaryColor),
-                                    content: BarcodeWidget(
-                                        data: ticketModel.ticketReservationCode
-                                            .toString(),
-                                        color: AppColor.primaryColor,
-                                        barcode: Barcode.qrCode()));
-                              },
-                              child: Container(
-                                width: 65.w,
-                                height: 7.h,
-                                decoration: BoxDecoration(
-                                  color: AppColor.primaryColor,
-                                  borderRadius: BorderRadius.circular(8.sp),
-                                ),
-                                child: const Center(
-                                  child: Text(
-                                    "View Reservation Code",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ),
+                          SizedBox(
+                            height: 10.h,
+                            child: BarcodeWidget(
+                              data:
+                                  ticketModel.ticketReservationCode.toString(),
+                              barcode: Barcode.codabar(
+                                explicitStartStop: true,
+                                printStartStop: true,
                               ),
+                              drawText: false, // إخفاء النص تحت الباركود
                             ),
                           ),
                         ],

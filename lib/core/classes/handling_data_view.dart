@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:re7la/core/constants/colors.dart';
 import 'package:re7la/core/constants/images.dart';
+import 'package:sizer/sizer.dart';
 import '../../view model/app_states.dart';
 
 class HandlingDataView extends StatelessWidget {
@@ -64,9 +65,29 @@ class HandlingDataView extends StatelessWidget {
     } else if (state is EmptySearch) {
       return Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image(image: AssetImage(AppImages().locationImage)),
+            SizedBox(
+              height: 8.h,
+            ),
+            SizedBox(
+              height: 35.h,
+              child: Image(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                  AppImages().train2,
+                ),
+              ),
+            ),
+            const Center(
+              child: Text(
+                "Select Your Trip !",
+                style: TextStyle(
+                    fontSize: 23,
+                    color: AppColor.primaryColor,
+                    fontWeight: FontWeight.w600),
+              ),
+            )
           ],
         ),
       );

@@ -4,5 +4,5 @@ import 'package:re7la/core/constants/colors.dart';
 
 successDialog(title, body) {
   Get.snackbar(title, body,
-      backgroundColor: AppColor.primaryColor.withOpacity(0.5));
+      backgroundColor: AppColor.secondColor.withOpacity(0.5));
 }

@@ -9,7 +9,6 @@ class TicketsCubit extends Cubit<AppState> {
   var data = [];
 
   showReservationCode() {}
-
   viewBookedTravels() async {
     emit(Loading());
     Either<Status, Map> response = await viewTicketsReq();
