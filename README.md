@@ -19,43 +19,44 @@ Effortlessly select destinations, travel dates, train trips, and seats while enj
 
 🔍 Reference Code Verification: Ensure ticket authenticity via a scannable code.
 
-## screenshots
-<img src="https://github.com/user-attachments/assets/dd006ab5-70f8-4ac3-874f-69207c5f315a" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/5d9dfcf8-fa2b-4e11-b9be-29e6ceaf05ec" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/a03805ed-7d04-4203-be9b-9ce54d3f3285" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/48672592-5822-4109-af7e-a551a7e901b5" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/61b8727c-6ebc-47b6-b134-0784f9f62ac5" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/f6926c94-4de9-4709-bfb8-2513618ae215" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/c0ae335e-8f14-4775-936f-fbbc8e282cfa" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/8cbb2395-8152-41ed-8f11-d4fe5810aa53" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/5f40891b-c38c-4158-a973-bc2dc201660a" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/b6ca7a45-4457-4dbb-9ad5-5bd8a6f42584" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/773f0ce3-f6ca-4255-af8c-ca4e5c1913ff" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/f4a9b71d-7979-4a90-b42f-b57a6465823d" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/7727e665-f3aa-49a8-9836-4b8abe5dfe3e" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/7db34247-c8ed-47c6-b4ea-a54c289d3937" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/98c8ecdc-8eac-4d75-8e7b-e450fe1154dd" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/579b4838-d9da-4387-93b1-5e9bd03dbae8" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/db4dd309-eedd-4ed8-89ff-26b104899586" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/dfae4eab-8fb8-44f6-a80e-e40b3495bde3" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/e069f9c2-fdca-47fa-acba-1d51a4c9bab0" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/6ddbd95f-e1fb-4af4-b802-d118b77cffe9" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/764b5eb6-c911-4a6d-8b28-bebbf943f05f" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/6a5579a2-458c-4190-8e4b-289ec543664f" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/2c23d2a3-9e17-4f11-9aca-8721628ea053" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/fbc37f42-5434-49a3-9f63-5fad73db7b56" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/ccb61f84-1d2a-4c86-bea5-ddd9cd007fb4" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/dd2b9167-076c-42ad-9a54-bfb01b6fbeef" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/84a1022e-b477-4bc0-8d3e-4549abf03b30" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/b115909c-285d-46eb-b9da-b2e872ac7778" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/7bcfb885-6a16-41e2-a2ce-9e123d50468d" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/59b68dc8-63f0-4d95-85ee-f6162ae300f3" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/25c12b2e-752f-404e-8828-aa34c2ae88df" alt="Image" width="350"/>
-<img src="https://github.com/user-attachments/assets/d7fc2cdb-2131-4a77-95fe-ef6e781fe71c" alt="Image" width="350"/>
-
 ⏰ Trip Reminders: Get notifications for upcoming journeys.
 
 📱 Responsive Design: Optimized for all devices for a smooth experience.
 
 This system enhances ticket booking convenience, providing flexibility and security for travelers. 🚄✨
+
+## screenshots 
+<img src="https://github.com/user-attachments/assets/d53228cc-5735-46b3-a829-a955dcc9d09d" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/dd5c73ed-40cb-444b-9c1f-0fc524154fd4" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/030ba5a9-763d-47c8-a03a-d68cdcfdbb99" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/0488f06e-6cf7-4696-8797-118678ebb13f" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/cb210ef7-7a75-4e4d-bfdd-d0a8195fd8ed" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/ec00692f-fe6d-4458-ad6e-1e66747b14a0" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/d5f89092-834b-4a76-bcee-a9c5e770ec85" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/22a96295-e2aa-4fba-bba9-568e2af608a9" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/9e3092e2-dcb2-43c2-a2a8-07cb1d83670b" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/01cbfd8a-200c-41a3-b790-a231e4fbaa0b" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/d7419ba7-55a6-4a06-a024-ba76d64bc55a" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/21f95516-2861-4e7e-b164-c99f9bc59239" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/ad8c702c-841b-4319-90e5-c7225f1f479e" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/bcabed3d-b65f-4062-9f79-387dffd3b8d4" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/5e3e0b8d-6733-4184-90e1-5ebc7d16fd6d" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/6d2df3c1-4d2c-409a-a9f0-23fb2469f73e" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/ea054347-ec3b-4f5d-ae20-b81e4abedd2d" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/6fd23ac2-de40-4bfd-82eb-3358b34ea3ed" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/fd343875-fe72-4902-8fcd-e6569049f3fc" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/207998c4-b9c4-4c9f-ae29-bf69846fb2f7" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/890ca482-2445-4a7f-987c-9b42b1e4c8bc" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/dcd69a20-4303-4ddc-a5de-bb1fa37db7aa" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/f9ddc23c-c0bc-43bf-8dc1-5da89c8c2dd1" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/2e906032-9887-49df-9b3f-b66419b4dfb6" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/edf0a52b-3f86-44bd-bb71-c1f9ad2d836c" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/8a219e9a-e8ca-4397-8d8d-218bd1a730d3" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/8511cdf1-8a5c-43e3-b341-2ac965c8d9ae" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/98afbaba-fb97-45e2-af00-2f48bf4a8670" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/1a489296-c061-4eb4-a142-e248a674fc02" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/2b6e9946-f206-48de-8358-0b60979ed16c" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/c7a98eca-dc97-48e5-92eb-9780052ab77e" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/76951806-cafb-46bf-a6a9-382b02711794" alt="Image" width="350"/>
+<img src="https://github.com/user-attachments/assets/6e7977f0-2fa1-4569-80a5-4cf6f42da8d3" alt="Image" width="350"/>
 
